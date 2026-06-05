@@ -1,0 +1,79 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif-jp: "Noto Serif JP", "YuMincho", "Hiragino Mincho ProN", serif;
+  --font-sans: "Plus Jakarta Sans", "Helvetica Neue", "Hiragino Kaku Gothic ProN", "BIZ UDPGothic", "Meiryo", Arial, sans-serif;
+  --font-cursive: "Caveat", cursive;
+  --font-yuji: "Yuji Syuku", serif;
+  
+  --animate-float-slow: float-slow 12s ease-in-out infinite;
+  --animate-float-delayed: float-delayed 15s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 25s linear infinite;
+  --animate-subtle-bounce: subtle-bounce 4s ease-in-out infinite;
+  --animate-wave: wave 8s ease-in-out infinite;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-15px) rotate(3deg); }
+}
+
+@keyframes float-delayed {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(12px) rotate(-4deg); }
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes subtle-bounce {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+@keyframes wave {
+  0%, 100% { border-radius: 40% 60% 70% 30% / 40% 50% 60% 55%; }
+  50% { border-radius: 60% 45% 50% 55% / 55% 65% 45% 50%; }
+}
+
+/* Custom visual styles to replicate premium Japanese design aesthetics */
+.text-gradient-jp {
+  background: linear-gradient(135deg, #ff6b8b 0%, #ff8e53 25%, #ffbe3b 50%, #2ec4b6 75%, #0077b6 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  display: inline-block;
+}
+
+/* Paint brush textures using subtle background masks */
+.paint-stroke {
+  position: relative;
+}
+
+.paint-stroke::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 12px;
+  background: rgba(255, 118, 134, 0.25);
+  border-radius: 40% 60% 30% 70% / 10% 20% 80% 95%;
+  z-index: -1;
+}
+
+/* Rounded UI elements and scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+::-webkit-scrollbar-thumb {
+  background: #f1f3f5;
+  border-radius: 999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #e2e8f0;
+}

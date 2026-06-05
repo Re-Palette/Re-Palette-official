@@ -1,0 +1,6 @@
+{
+  "name": "Re-Palette Landing Page",
+  "description": "High-fidelity, award-winning modern Japanese landing page for Re-Palette, a beauty and welfare company.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
