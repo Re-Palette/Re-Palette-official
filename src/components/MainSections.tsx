@@ -1,12 +1,70 @@
 import { motion } from "motion/react";
-import { Scissors, Sparkles, GraduationCap, Users, ArrowRight, Heart, Award, Smile, ChevronRight } from "lucide-react";
+import { Scissors, Sparkles, GraduationCap, Users, Heart, Award, Smile, ChevronRight, Mail, Compass, Calendar, MapPin, Clock } from "lucide-react";
 import { servicesData } from "../data";
 
 interface MainSectionsProps {
   onInquiryClick: () => void;
+  onNavigateSection: (sectionId: string) => void;
 }
 
-export default function MainSections({ onInquiryClick }: MainSectionsProps) {
+const galleryItems = [
+  {
+    id: "g1",
+    category: "VISITING CARE",
+    number: "01",
+    tag: "訪問カット＆ケア",
+    title: "いつものお部屋が、プロのヘアサロンに変わる瞬間。",
+    description: "ベッドサイドや車椅子のまま安全に配慮し、プロフェッショナルな仕上げで極上の笑顔をお届けします。",
+    gradient: "from-rose-400/40 to-pink-500/40",
+  },
+  {
+    id: "g2",
+    category: "MAKEUP THERAPY",
+    number: "02",
+    tag: "福祉メイクアップレッスン",
+    title: "自分の手で行うメイク。表情の輝きとリハビリ効果。",
+    description: "視覚障がいのある方やシニアの方々が自ら美を表現。鏡を見つめる喜びと温かな活力を引き出します。",
+    gradient: "from-amber-300/40 to-orange-400/40",
+  },
+  {
+    id: "g3",
+    category: "ACADEMY",
+    number: "03",
+    tag: "福祉美容セミナー研修",
+    title: "次の世代を担う、美容と医療・福祉の専門職養成。",
+    description: "介助方法や心理ケアの専門知識を習得し、福祉美容の第一線で活躍できる優秀な講師陣やキャストを育成。",
+    gradient: "from-teal-300/40 to-emerald-400/40",
+  },
+  {
+    id: "g4",
+    category: "COMMUNITY EVENTS",
+    number: "04",
+    tag: "世代を越えた地域サロン",
+    title: "だれもが障壁を忘れて集える、新しい温もり交流の場。",
+    description: "ビューティデーやバリアフリーアート展示などを定期開催。地域の人々をハートフルに結びつけます。",
+    gradient: "from-sky-300/40 to-indigo-500/40",
+  },
+  {
+    id: "g5",
+    category: "TOUCH THERAPY",
+    number: "05",
+    tag: "タクティールコミュニケーション",
+    title: "肌を通じた対話。心と体の安らぎを呼び起こす手法。",
+    description: "自律神経の調和をはかり、安心感を与えるタッチングケア。笑顔の裏側にある健やかなメンタルを支えます。",
+    gradient: "from-purple-300/40 to-rose-400/40",
+  },
+  {
+    id: "g6",
+    category: "FUTURE VISION",
+    number: "06",
+    tag: "Color Your Future",
+    title: "あなたらしい本来の色が、きらきらと輝く未来（あした）。",
+    description: "私たちは、すべての人に「なりたかった私」「もっとワクワクする私」に再会する幸せをお約束します。",
+    gradient: "from-[#ffa07a]/40 to-[#ff6b8b]/40",
+  },
+];
+
+export default function MainSections({ onInquiryClick, onNavigateSection }: MainSectionsProps) {
   // Map icons to services
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -26,8 +84,8 @@ export default function MainSections({ onInquiryClick }: MainSectionsProps) {
   return (
     <div className="bg-white relative">
       
-      {/* 1. ABOUT SECTION */}
-      <section id="about" className="py-24 lg:py-32 px-8 xl:px-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center border-t border-rose-50/30">
+      {/* 2. ABOUT SECTION */}
+      <section id="about" className="scroll-mt-24 py-24 lg:py-32 px-8 xl:px-16 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center border-t border-rose-50/30">
         
         {/* Left Graphics & Philosophy */}
         <div className="lg:col-span-5 relative">
@@ -38,8 +96,8 @@ export default function MainSections({ onInquiryClick }: MainSectionsProps) {
             </div>
             
             <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp leading-tight text-gray-900 select-none">
-              美容福祉で、<br />
-              世界に彩りを。
+              伴走型美容福祉で、<br />
+              すべての若者に彩りを。
             </h2>
             
             <p className="text-sm text-gray-500 font-sans font-medium">
@@ -99,8 +157,8 @@ export default function MainSections({ onInquiryClick }: MainSectionsProps) {
         </div>
       </section>
 
-      {/* 2. SERVICES SECTION */}
-      <section id="services" className="py-24 lg:py-32 bg-[#fafaf9] relative overflow-hidden">
+      {/* 2.5. SERVICES SECTION */}
+      <section id="services" className="scroll-mt-24 py-24 lg:py-32 bg-[#fafaf9] relative overflow-hidden border-t border-gray-50">
         {/* Soft floating background items */}
         <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-rose-100/10 filter blur-3xl pointer-events-none select-none" />
         <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-teal-100/10 filter blur-3xl pointer-events-none select-none" />
@@ -168,52 +226,240 @@ export default function MainSections({ onInquiryClick }: MainSectionsProps) {
         </div>
       </section>
 
-      {/* 3. RECRUIT / CONTACT TRIGGER BANNER */}
-      <section id="careers" className="py-24 lg:py-28 px-8 xl:px-16 max-w-7xl mx-auto text-center relative font-sans">
-        
-        {/* Soft abstract graphic background to match style */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-5 select-none pointer-events-none">
-          <svg viewBox="0 0 400 400" className="w-[450px] h-auto text-rose-300 transform rotate-12">
-            <path d="M120,310 C180,330 260,280 290,210 C320,140 280,70 210,90 C140,110 60,160 80,230 C90,270 100,300 120,310 Z" fill="currentColor" />
-          </svg>
-        </div>
+      {/* 3. VISION (Color Your Future) SECTION */}
+      <section id="vision" className="scroll-mt-12 py-24 lg:py-32 bg-white relative overflow-hidden">
+        {/* Artistic paint wash background circles */}
+        <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-rose-50/20 filter blur-[90px] pointer-events-none select-none" />
+        <div className="absolute top-1/3 right-1/4 w-[400px] h-[400px] rounded-full bg-amber-50/20 filter blur-[90px] pointer-events-none select-none" />
 
-        <div className="relative max-w-3xl mx-auto space-y-8 select-none">
-          <div className="inline-flex items-center gap-1 text-[#1db2cf]">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#1db2cf] animate-ping" />
-            <span className="text-xs font-bold tracking-widest uppercase">Join Our Team</span>
+        <div className="max-w-7xl mx-auto px-8 xl:px-16 relative">
+          <div className="text-center max-w-3xl mx-auto mb-16 lg:mb-24 space-y-4 select-none">
+            <div className="inline-flex items-center gap-1.5 text-[#ff7686] bg-rose-50/50 px-4 py-1.5 rounded-full border border-rose-100/20 text-[11px] font-bold tracking-widest uppercase font-mono">
+              <Compass size={12} className="text-[#ff7686] animate-spin-slow" />
+              <span>Color Your Future</span>
+            </div>
+            
+            <h2 className="text-3.5xl lg:text-4.5xl font-black font-serif-jp text-gray-950 tracking-tight leading-tight pt-2">
+              VISION
+            </h2>
+            <p className="text-lg lg:text-xl font-bold font-serif-jp text-rose-400 bg-gradient-to-r from-rose-500 via-amber-400 to-[#1db2cf] bg-clip-text text-transparent">
+              誰もが「自分色の未来」を自由に描ける社会へ。
+            </p>
           </div>
-          
-          <h2 className="text-2xl lg:text-3xl font-extrabold font-serif-jp text-gray-900 leading-relaxed">
-            笑顔の輪を、いっしょに広げていきませんか？
-          </h2>
-          
-          <p className="text-sm text-gray-500 font-sans font-medium leading-relaxed max-w-xl mx-auto">
-            Re-Paletteでは、美容師、ヘアメイクアップアーティスト、作業療法士、福祉職経験者など様々な専門職が手を取り合い活躍しています。お持ちの資格や夢を、新しい笑顔に変えましょう。
-          </p>
 
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={onInquiryClick}
-              className="px-8 py-3.5 rounded-full bg-gradient-to-r from-rose-400 directly to-rose-500 text-white font-medium text-xs tracking-wider shadow-lg hover:shadow-xl hover:shadow-rose-100 transition-all cursor-pointer"
-            >
-              採用情報・仕事見学に申し込む
-            </motion.button>
-            <motion.button
-              whileHover={{ scale: 1.03 }}
-              whileTap={{ scale: 0.97 }}
-              onClick={onInquiryClick}
-              className="px-8 py-3.5 rounded-full border border-gray-200 hover:border-gray-300 text-gray-600 font-medium text-xs tracking-wider transition-all bg-white cursor-pointer"
-            >
-              ボランティア情報はこちら
-            </motion.button>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Story Philosophy Pillar */}
+            <div className="lg:col-span-6 space-y-8 text-gray-700 font-sans font-medium">
+              <h3 className="text-2xl font-extrabold font-serif-jp text-gray-900 leading-snug">
+                年齢や障がいを理由に、<br />
+                自分をもてなす喜びを諦めない社会をつくる。
+              </h3>
+              
+              <div className="space-y-5 leading-relaxed tracking-wide text-sm font-medium text-gray-600">
+                <p>
+                  髪を切り整え、好みの色をまとう。それだけで鏡に映る瞳は輝き、言葉が弾み、世界が生き生きと動き出します。「美しくありたい」と願う本能は、人が健やかに豊かに生きるための、最も純粋で強力なエネルギーです。
+                </p>
+                <p>
+                  しかし移動が困難であったり、環境が整っていなかったりすることで、多くの人がその体験に届かない現実があります。
+                </p>
+                <p>
+                  私たちRe-Palette（リパレット）は、すべての障害を取り除き、一人ひとりに最高水準の美容ケアをお届けします。パレットに新しい絵の具を溶くように、あなたの世界を美しい驚きと希望の色で満たすこと。それが私たちの使命です。
+                </p>
+              </div>
+
+              {/* Dynamic decorative statement */}
+              <div className="pt-4 flex items-center gap-4 text-xs font-mono font-bold text-gray-400 select-none">
+                <span>EQUALITY OF BEAUTY</span>
+                <span className="w-8 h-[1px] bg-gray-200" />
+                <span>FREEDOM OF EXPRESSION</span>
+              </div>
+            </div>
+
+            {/* Core Values Pillars Design */}
+            <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
+              
+              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-rose-100/50 hover:bg-white transition-all space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-500 font-black">
+                  彩
+                </div>
+                <h4 className="text-md font-bold font-serif-jp text-gray-900">
+                  尊厳のカラー
+                </h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-sans font-medium">
+                  単なる日常の整髪ではなく、「ときめく心」や「高揚感」という精神的尊厳にフォーカスします。
+                </p>
+              </div>
+
+              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-amber-100/50 hover:bg-white transition-all space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-500 font-black">
+                  温
+                </div>
+                <h4 className="text-md font-bold font-serif-jp text-gray-900">
+                  臨床での寄り添い
+                </h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-sans font-medium">
+                  医療や心理への深い理解を用い、相手の身体的・認知的な状態に極限までアライメントします。
+                </p>
+              </div>
+
+              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-teal-100/50 hover:bg-white transition-all space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-500 font-black">
+                  創
+                </div>
+                <h4 className="text-md font-bold font-serif-jp text-gray-900">
+                  未来を創る共走
+                </h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-sans font-medium">
+                  地域、ご家族、福祉施設スタッフの方々と共に車輪を回し、社会課題を笑顔でアップデートします。
+                </p>
+              </div>
+
+              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-sky-100/50 hover:bg-white transition-all space-y-4">
+                <div className="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center text-sky-500 font-black">
+                  志
+                </div>
+                <h4 className="text-md font-bold font-serif-jp text-gray-900">
+                  プロの人材育成
+                </h4>
+                <p className="text-xs text-gray-500 leading-relaxed font-sans font-medium">
+                  アカデミーでの教育を通し、「優しさ」と「プロ技術」を兼ね備えた優れたイノベーターを紡ぎ出します。
+                </p>
+              </div>
+
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* 4. COMPANY FOOTER */}
+
+
+      {/* 4. GALLERY SECTION */}
+      <section id="gallery" className="scroll-mt-12 py-24 lg:py-32 bg-[#fafaf9] relative border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-8 xl:px-16">
+          <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20 space-y-4">
+            <div className="inline-flex items-center gap-2 text-rose-500 font-bold bg-white px-4 py-1.5 rounded-full border border-rose-50 text-[11px] uppercase tracking-widest">
+              Studio Gallery
+            </div>
+            <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp text-gray-900 tracking-tight select-none">
+              美しさと温もりが行き交う、日々の記録
+            </h2>
+            <p className="text-xs text-gray-500 font-sans tracking-wide">
+              Re-Paletteが届けてきた、いくつもの笑顔と感動の瞬間をご紹介します。
+            </p>
+          </div>
+
+          {/* Elegant Bento Grid of visual representation blocks */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {galleryItems.map((item) => (
+              <motion.div
+                key={item.id}
+                whileHover={{ y: -6 }}
+                className="group relative h-[380px] rounded-[32px] overflow-hidden bg-white border border-gray-100 shadow-sm transition-all"
+              >
+                {/* A soft color-wash gradient as fallback matching the premium theme */}
+                <div className={`absolute inset-0 bg-gradient-to-tr ${item.gradient} opacity-20 group-hover:opacity-30 transition-all duration-500`} />
+                
+                {/* Subtle graphical background pattern */}
+                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]" />
+                
+                {/* Content overlay container */}
+                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[10px] font-bold tracking-widest font-mono text-gray-400 bg-white/80 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-gray-100/50">
+                      {item.category}
+                    </span>
+                    <span className="text-xs font-mono font-bold text-rose-400/80">
+                      {item.number}
+                    </span>
+                  </div>
+
+                  <div className="space-y-3">
+                    <span className="text-[11px] font-bold tracking-widest text-[#ffa07a] uppercase block font-mono">
+                      {item.tag}
+                    </span>
+                    <h3 className="text-lg font-bold text-gray-900 font-serif-jp leading-snug">
+                      {item.title}
+                    </h3>
+                    <p className="text-[12px] text-gray-500 font-sans font-medium leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+
+                {/* Decorative bottom line */}
+                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-300 via-amber-200 to-teal-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. CONTACT SECTION */}
+      <section id="contact" className="scroll-mt-12 py-24 lg:py-32 bg-white relative overflow-hidden border-t border-gray-100">
+        {/* Absolute shapes for cosmetic touch */}
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-72 h-72 rounded-full bg-[#fbdbe1]/20 filter blur-3xl pointer-events-none select-none" />
+
+        <div className="max-w-7xl mx-auto px-8 xl:px-16 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+            
+            {/* Text Info */}
+            <div className="lg:col-span-5 space-y-6">
+              <div className="flex items-center gap-2 text-rose-500 font-bold text-[11px] uppercase tracking-widest">
+                <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
+                <span>Contact Us</span>
+              </div>
+              
+              <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp text-gray-900 tracking-tight leading-tight select-none">
+                お気軽にご相談、<br />
+                お問い合わせください。
+              </h2>
+              
+              <p className="text-sm text-gray-500 leading-relaxed font-sans font-medium">
+                個人での訪問理美容のご依頼、福祉施設・病院経営者様からのデモンストレーションやお見積もりの相談、メディア取材等、随時受け付けております。
+              </p>
+
+              <div className="space-y-4 pt-4 border-t border-rose-100/50">
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] font-mono font-bold text-gray-400 bg-gray-50 px-2.5 py-1 rounded-md border border-gray-100">TEL</span>
+                  <span className="text-lg font-bold text-[#343a40] font-sans">03-xxxx-xxxx</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] font-mono font-bold text-gray-400 bg-gray-50 px-2.5 py-1 rounded-md border border-gray-100">EMAIL</span>
+                  <span className="text-sm font-bold text-[#343a40] font-sans">contact@re-palette.com</span>
+                </div>
+                <p className="text-[11px] text-gray-400 font-medium font-sans">受付時間：平日 10:00〜18:00（土日祝休）</p>
+              </div>
+            </div>
+
+            {/* Quick Box or simplified form */}
+            <div className="lg:col-span-7 bg-[#fafaf9] rounded-[40px] p-8 lg:p-10 border border-gray-100 shadow-sm relative">
+              <div className="space-y-6">
+                <h3 className="text-lg font-bold text-gray-900 font-serif-jp mb-2">オンラインフォームからのお問い合わせ</h3>
+                <p className="text-xs text-gray-500 mb-6 font-medium">以下ボタンより、担当者が直接対応させていただくフォームが開きます。お気軽に入力ください。</p>
+                
+                <motion.button
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                  onClick={onInquiryClick}
+                  className="w-full py-5 rounded-[24px] bg-gradient-to-r from-rose-400 via-rose-500 to-orange-400 hover:from-rose-500 hover:to-orange-400 text-white font-bold text-sm text-center shadow-lg hover:shadow-xl hover:shadow-rose-100/80 cursor-pointer transition-all flex items-center justify-center gap-2"
+                >
+                  <Mail size={16} />
+                  <span>お問い合わせフォームを開く</span>
+                </motion.button>
+
+                <p className="text-[10px] text-gray-400 text-center uppercase font-mono tracking-widest pt-2">
+                  Secure Submission Protection
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* 6. COMPANY FOOTER */}
       <footer id="company" className="bg-[#1f2122] text-white pt-16 pb-12 font-sans select-none">
         
         <div className="max-w-7xl mx-auto px-8 xl:px-16 grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 border-b border-white/5 pb-10">
@@ -235,10 +481,13 @@ export default function MainSections({ onInquiryClick }: MainSectionsProps) {
           <div className="md:col-span-4">
             <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Quick Links</h4>
             <ul className="text-xs space-y-2.5 text-gray-300 font-medium">
-              <li><a href="#about" className="hover:text-rose-400 transition-colors">私たちについて</a></li>
-              <li><a href="#services" className="hover:text-rose-400 transition-colors">提供サービス一覧</a></li>
-              <li><a href="#news" className="hover:text-rose-400 transition-colors">最新トピックス・お知らせ</a></li>
-              <li><a href="#careers" className="hover:text-rose-400 transition-colors">採用情報と見学ステップ</a></li>
+              <li><button onClick={() => onNavigateSection("hero")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">トップ (Top)</button></li>
+              <li><button onClick={() => onNavigateSection("about")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">私たちについて (About)</button></li>
+              <li><button onClick={() => onNavigateSection("services")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">サービス内容 (Services)</button></li>
+              <li><button onClick={() => onNavigateSection("vision")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">未来へのビジョン (Vision)</button></li>
+              <li><button onClick={() => onNavigateSection("event")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">イベント情報 (Events)</button></li>
+              <li><button onClick={() => onNavigateSection("gallery")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">日々の記録 (Gallery)</button></li>
+              <li><button onClick={() => onNavigateSection("contact")} className="hover:text-rose-400 transition-colors flex items-center gap-1 text-left cursor-pointer">お問い合わせ (Contact) <ChevronRight size={10} /></button></li>
             </ul>
           </div>
 
@@ -257,9 +506,9 @@ export default function MainSections({ onInquiryClick }: MainSectionsProps) {
         <div className="max-w-7xl mx-auto px-8 xl:px-16 pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-gray-500">
           <span>© 2026 Re-Palette Co., Ltd. All rights reserved.</span>
           <div className="flex gap-4 mt-4 md:mt-0 font-medium h-4">
-            <a href="#about" className="hover:text-white transition-all">プライバシーポリシー</a>
+            <button onClick={() => onNavigateSection("about")} className="hover:text-white transition-all cursor-pointer">プライバシーポリシー</button>
             <span className="w-[1px] bg-gray-700" />
-            <a href="#about" className="hover:text-white transition-all">特定商取引に基づく表記</a>
+            <button onClick={() => onNavigateSection("about")} className="hover:text-white transition-all cursor-pointer">特定商取引に基づく表記</button>
           </div>
         </div>
 

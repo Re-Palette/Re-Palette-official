@@ -1,11 +1,12 @@
 import { NavItem, NewsItem, ServiceItem } from "./types";
 
 export const navigationItems: NavItem[] = [
-  { id: "about", label: "About Us", jpLabel: "私たちについて", href: "#about" },
-  { id: "services", label: "Services", jpLabel: "サービス", href: "#services" },
-  { id: "news", label: "News", jpLabel: "お知らせ", href: "#news" },
-  { id: "careers", label: "Careers", jpLabel: "採用情報", href: "#careers" },
-  { id: "company", label: "Company", jpLabel: "会社情報", href: "#company" },
+  { id: "about", label: "About Us", jpLabel: "ABOUT", href: "#about" },
+  { id: "services", label: "Services", jpLabel: "SERVICE", href: "#services" },
+  { id: "vision", label: "Color Your Future", jpLabel: "VISION", href: "#vision" },
+  { id: "event", label: "Upcoming Events", jpLabel: "EVENT", href: "#event" },
+  { id: "gallery", label: "Gallery", jpLabel: "GALLERY", href: "#gallery" },
+  { id: "contact", label: "Contact Us", jpLabel: "CONTACT", href: "#contact" },
 ];
 
 export const newsFeed: NewsItem[] = [

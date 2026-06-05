@@ -24,7 +24,14 @@ export default function Header({
     >
       {/* BRAND LOGO / SUBTITLE */}
       <div className="flex flex-col select-none">
-        <a href="#hero" className="flex items-center gap-1.5 group">
+        <a 
+          href="#hero" 
+          onClick={(e) => {
+            e.preventDefault();
+            setActiveSection("hero");
+          }}
+          className="flex items-center gap-1.5 group"
+        >
           <span className="font-serif-jp text-3xl font-medium tracking-tight bg-gradient-to-r from-[#343a40] via-[#495057] to-gray-700 bg-clip-text text-transparent hover:text-rose-500 transition-colors">
             Re-Palette
           </span>
@@ -42,24 +49,14 @@ export default function Header({
             key={item.id}
             href={item.href}
             onClick={(e) => {
-              // Smooth scroll
               e.preventDefault();
               setActiveSection(item.id);
-              const element = document.getElementById(item.id);
-              if (element) {
-                element.scrollIntoView({ behavior: "smooth", block: "start" });
-              }
             }}
             className="group relative flex flex-col items-center py-2 text-[14px] select-none"
           >
             {/* Japanese Text (Primary in the style) */}
             <span className="text-[#343a40] font-sans font-medium hover:text-rose-500 transition-colors duration-200">
               {item.jpLabel}
-            </span>
-            
-            {/* Hover Sub-label (English, elegant, tiny) */}
-            <span className="absolute -bottom-2 text-[8px] font-bold uppercase tracking-widest text-amber-500 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-1 group-hover:translate-y-0">
-              {item.label}
             </span>
 
             {/* Custom watercolor dot underline */}

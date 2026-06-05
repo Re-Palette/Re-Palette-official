@@ -77,10 +77,6 @@ export default function MenuOverlay({
                         e.preventDefault();
                         setActiveSection(item.id);
                         onClose();
-                        const element = document.getElementById(item.id);
-                        if (element) {
-                          element.scrollIntoView({ behavior: "smooth", block: "start" });
-                        }
                       }}
                       className="group flex items-baseline justify-between py-2 border-b border-gray-100 hover:border-rose-100 transition-all cursor-pointer"
                     >
@@ -92,7 +88,7 @@ export default function MenuOverlay({
                           {item.jpLabel}
                         </span>
                       </div>
-                      <span className="text-[11px] tracking-widest text-amber-500 uppercase font-mono font-bold opacity-70 group-hover:opacity-100 transition-opacity">
+                      <span className="text-[11px] tracking-widest text-gray-400 group-hover:text-rose-400 uppercase font-mono font-bold opacity-70 group-hover:opacity-100 transition-all">
                         {item.label}
                       </span>
                     </a>
