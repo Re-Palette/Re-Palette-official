@@ -206,14 +206,6 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
                         referrerPolicy="no-referrer"
                         className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500"
                       />
-                      {/* Stamp design overlays */}
-                      <div className="absolute top-4 right-4 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-mono font-bold tracking-widest text-[#ffffff] uppercase select-none border border-white/10">
-                        OFFICIAL POSTER
-                      </div>
-                      <div className="absolute bottom-3 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-lg text-[9px] font-semibold text-gray-800 select-none shadow-sm flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-rose-500" />
-                        <span>PC Size Poster Area</span>
-                      </div>
                     </div>
 
                     {/* Title */}
@@ -297,7 +289,7 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
                       href="https://nuance-lounge.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className={`w-full py-4 rounded-2xl border ${event.btnBorder} font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer transition-all text-center flex items-center justify-center`}
+                      className={`w-full py-4 rounded-2xl border ${event.btnBorder} font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer transition-all text-center`}
                     >
                       <span>イベントの参加を申請・問い合わせる</span>
                       <ChevronRight size={12} className="transform group-hover:translate-x-1 transition-transform" />
@@ -307,33 +299,6 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
               ))}
             </div>
           )}
-
-          {/* Business / Welfare Special Lecture Program Block */}
-          <div className="mt-20 bg-gradient-to-r from-rose-50/35 via-[#fafaf9] to-white rounded-[40px] p-8 sm:p-12 border border-gray-100 flex flex-col md:flex-row items-center justify-between gap-10">
-            <div className="space-y-4 max-w-2xl">
-              <div className="w-10 h-10 rounded-2xl bg-white shadow-sm border border-gray-100 flex items-center justify-center text-[#ff7686]">
-                <BookOpen size={18} />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 font-serif-jp">
-                法人・医療福祉施設へのデモンストレーション・個別セミナー派遣
-              </h3>
-              <p className="text-xs sm:text-sm text-gray-500 font-sans font-medium leading-relaxed">
-                介護施設や病院での訪問理美容の新規導入、スタッフ様向けのバリアフリー講習、タクティールコミュニケーション研修、出張メイク体験プランなど、個別のカスタマイズセミナーも承っております。お気軽にご予算や受講人数等をお聞かせください。
-              </p>
-            </div>
-            
-            <motion.a
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-              href="https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-8 py-5 rounded-[24px] bg-[#343a40] hover:bg-gray-800 text-white font-bold text-xs cursor-pointer tracking-wider flex items-center justify-center gap-2 flex-shrink-0 text-center"
-            >
-              <Mail size={14} />
-              <span>施設向け派遣・開催の相談</span>
-            </motion.a>
-          </div>
 
         </div>
       </section>

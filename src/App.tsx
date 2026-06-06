@@ -122,11 +122,11 @@ export default function App() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {/* SPLIT SCREEN HERO PANEL */}
-            <main id="hero" className="relative w-full h-screen min-h-[650px] p-0 overflow-hidden">
+            <main id="hero" className="relative w-full md:h-screen md:min-h-[650px] h-auto p-0 md:overflow-hidden overflow-visible">
               <HeroRight />
 
               {/* News Bar positioned perfectly at the bottom-left of the hero block */}
-              <div className="absolute bottom-10 left-6 sm:left-10 lg:left-16 z-30 max-w-[calc(100vw-3rem)] sm:max-w-xl md:max-w-xl">
+              <div className="absolute md:bottom-10 bottom-6 left-6 sm:left-10 lg:left-16 z-30 max-w-[calc(100vw-3rem)] sm:max-w-xl md:max-w-xl">
                 <NewsBar onViewAllClick={() => setIsNewsDrawerOpen(true)} />
               </div>
             </main>

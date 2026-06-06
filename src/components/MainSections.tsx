@@ -47,7 +47,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
               <span className="text-xs uppercase font-sans font-bold tracking-widest text-[#ff6b8b]">About Re-Palette</span>
             </div>
             
-            <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp leading-tight text-gray-900 select-none">
+            <h2 className="text-[27px] font-extrabold font-serif-jp leading-tight text-gray-900 select-none">
               伴走型美容福祉で、<br />
               すべての若者に彩りを。
             </h2>
@@ -74,7 +74,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             
             <h3 className="text-xl font-bold font-serif-jp text-[#ff7686] flex items-center gap-2">
               <Heart size={18} fill="currentColor" />
-              <span>「なりたい自分」を諦めない社会へ</span>
+              <span className="text-left text-[24px]">「なりたい自分」を諦めない社会へ</span>
             </h3>
             
             <p className="text-sm font-sans font-medium text-gray-600 leading-relaxed tracking-wider">
@@ -122,7 +122,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
               Our Services
             </div>
             
-            <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp text-gray-900 tracking-tight select-none">
+            <h2 className="text-[27px] font-extrabold font-serif-jp text-gray-900 tracking-tight select-none">
               やさしさと彩りを届けるサービス
             </h2>
             
@@ -156,12 +156,17 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                     {service.title}
                   </span>
                   
-                  <h3 className="text-lg font-bold text-gray-900 font-serif-jp mb-1.5">
-                    {service.jpTitle}
+                  <h3 className="text-sm sm:text-[15px] md:text-[16px] font-bold text-gray-900 font-serif-jp mb-2 leading-relaxed">
+                    <span className="block whitespace-nowrap overflow-hidden text-ellipsis">{service.jpTitle.split("（")[0]}</span>
+                    {service.jpTitle.includes("（") && (
+                      <span className="block text-[11px] sm:text-xs font-medium text-gray-500 font-sans mt-0.5 whitespace-nowrap overflow-hidden text-ellipsis">
+                        （{service.jpTitle.split("（")[1]}
+                      </span>
+                    )}
                   </h3>
 
                   {service.subtitle && (
-                    <div className="text-sm font-bold text-[#ff7686] font-serif-jp mb-4 leading-snug">
+                    <div className="text-xs sm:text-xs md:text-sm font-bold text-[#ff7686] font-serif-jp mb-4 leading-snug whitespace-nowrap overflow-hidden text-ellipsis" title={service.subtitle}>
                       {service.subtitle}
                     </div>
                   )}
@@ -347,7 +352,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 {/* Large decorative quotation mark */}
                 <Quote className="absolute -top-6 -left-6 w-12 h-12 text-rose-100/30 transform -rotate-12 pointer-events-none select-none" />
                 
-                <h4 className="text-xl lg:text-2xl font-serif-jp font-extrabold text-[#343a40] leading-snug relative z-10 select-none">
+                <h4 className="text-[19px] font-serif-jp font-extrabold text-[#343a40] leading-snug relative z-10 select-none">
                   「自分色のパレットを広げ、<br className="hidden sm:block" />
                   誰もがありのままでいられる居場所を。」
                 </h4>
@@ -414,7 +419,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 <span>Contact Us</span>
               </div>
               
-              <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp text-gray-900 tracking-tight leading-tight select-none">
+              <h2 className="text-[28px] font-extrabold font-serif-jp text-gray-900 tracking-tight leading-tight select-none">
                 お気軽にご相談、<br />
                 お問い合わせください。
               </h2>

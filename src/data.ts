@@ -29,7 +29,7 @@ export const servicesData: ServiceItem[] = [
     id: "third-place",
     title: "COMMUNITY THIRD PLACE",
     jpTitle: "コミュニティ・サロン（サードプレイス事業）",
-    subtitle: "【Nuance Lounge（ニュアンスラウンジ）】",
+    subtitle: "【Nuance Lounge】",
     description: "不登校や孤立、ルッキズムによる生きづらさを抱え、「一歩を踏み出せない」若者のためのポップアップ・サードプレイスです。学校や家庭以外の安心できる空間で、同じ目線を持つ仲間と出会い、ありのままの自分を表現できる最初の居場所を提供します。",
     color: "from-rose-400 to-orange-400",
     iconName: "Users",

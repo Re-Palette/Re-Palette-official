@@ -20,7 +20,7 @@ export default function Header({
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full bg-white/25 backdrop-blur-[12px] fixed top-0 left-0 z-40 px-8 xl:px-16 py-4 flex items-center justify-between border-b border-white/10 font-sans"
+      className="w-full bg-white/80 backdrop-blur-md fixed top-0 left-0 z-40 px-8 xl:px-16 h-[88px] flex items-center justify-between border-b border-gray-100/50 font-sans shadow-sm"
     >
       {/* BRAND LOGO / SUBTITLE */}
       <div className="flex flex-col select-none">
@@ -79,7 +79,7 @@ export default function Header({
           target="_blank"
           rel="noopener noreferrer"
           id="header-inquiry-btn"
-          className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-orange-400 text-white font-medium text-[13px] tracking-wide shadow-md shadow-rose-100 transition-all cursor-pointer"
+          className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-orange-400 text-white font-medium text-[13px] tracking-wide shadow-md shadow-rose-100 transition-all cursor-pointer"
         >
           <Mail size={14} className="text-white/90" />
           <span>お問い合わせ</span>
