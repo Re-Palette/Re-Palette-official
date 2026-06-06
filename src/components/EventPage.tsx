@@ -294,7 +294,7 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
                   {/* Actions CTA button and small badge */}
                   <div className="mt-8 pt-6 border-t border-gray-50 flex items-center justify-between gap-4">
                     <a
-                      href="https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor"
+                      href="https://nuance-lounge.vercel.app/"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`w-full py-4 rounded-2xl border ${event.btnBorder} font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer transition-all text-center flex items-center justify-center`}
