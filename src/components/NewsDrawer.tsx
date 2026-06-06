@@ -5,9 +5,17 @@ import { newsFeed } from "../data";
 interface NewsDrawerProps {
   isOpen: boolean;
   onClose: () => void;
+  onNavigateSection?: (sectionId: string) => void;
 }
 
-export default function NewsDrawer({ isOpen, onClose }: NewsDrawerProps) {
+export default function NewsDrawer({ isOpen, onClose, onNavigateSection }: NewsDrawerProps) {
+  const handleItemClick = (news: typeof newsFeed[0]) => {
+    if ((news.category === "EVENT" || news.title.includes("Nuance Lounge")) && onNavigateSection) {
+      onClose();
+      onNavigateSection("event");
+    }
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -50,6 +58,7 @@ export default function NewsDrawer({ isOpen, onClose }: NewsDrawerProps) {
               {newsFeed.map((news) => (
                 <div
                   key={news.id}
+                  onClick={() => handleItemClick(news)}
                   className="p-5 rounded-2xl border border-gray-100 hover:border-rose-100/60 hover:bg-rose-50/20 transition-all group flex items-start justify-between gap-4 cursor-pointer"
                 >
                   <div className="space-y-1.5 flex-1">

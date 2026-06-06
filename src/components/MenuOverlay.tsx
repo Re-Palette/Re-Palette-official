@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "motion/react";
-import { X, Instagram, Heart, ArrowUpRight, ShieldAlert, Users, Compass, Globe } from "lucide-react";
+import { X, Instagram, Heart, ArrowUpRight, ShieldAlert, Users, Compass, Globe, Facebook, Linkedin } from "lucide-react";
 import { navigationItems } from "../data";
 
 interface MenuOverlayProps {
@@ -123,13 +123,16 @@ export default function MenuOverlay({
               </button>
 
               <div className="flex items-center justify-between text-xs text-gray-400 pt-4 border-t border-gray-50">
-                <span>SNS: @re_palette_japan</span>
+                <span>SNS Links</span>
                 <div className="flex items-center gap-4">
-                  <a href="#instagram" className="hover:text-rose-500 transition-colors">
+                  <a href="https://www.instagram.com/repalette_official/?hl=ja" target="_blank" rel="noopener noreferrer" className="hover:text-rose-500 transition-colors" title="Instagram">
                     <Instagram size={16} />
                   </a>
-                  <a href="#about" className="hover:text-rose-500 transition-colors">
-                    <Globe size={16} />
+                  <a href="https://www.facebook.com/profile.php?id=61587543673430&locale=ja_JP" target="_blank" rel="noopener noreferrer" className="hover:text-rose-500 transition-colors" title="Facebook">
+                    <Facebook size={16} />
+                  </a>
+                  <a href="https://www.linkedin.com/in/haruto-suzuki-614a253b9/" target="_blank" rel="noopener noreferrer" className="hover:text-rose-500 transition-colors" title="LinkedIn">
+                    <Linkedin size={16} />
                   </a>
                 </div>
               </div>

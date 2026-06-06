@@ -1,70 +1,22 @@
+import React from "react";
 import { motion } from "motion/react";
-import { Scissors, Sparkles, GraduationCap, Users, Heart, Award, Smile, ChevronRight, Mail, Compass, Calendar, MapPin, Clock } from "lucide-react";
+import { Scissors, Sparkles, GraduationCap, Users, Heart, Award, Smile, ChevronRight, Mail, Compass, Calendar, MapPin, Clock, Instagram, Facebook, Linkedin, Quote, User } from "lucide-react";
 import { servicesData } from "../data";
+import representativeImg from "../assets/images/representative.jpg";
 
 interface MainSectionsProps {
   onInquiryClick: () => void;
   onNavigateSection: (sectionId: string) => void;
 }
 
-const galleryItems = [
-  {
-    id: "g1",
-    category: "VISITING CARE",
-    number: "01",
-    tag: "訪問カット＆ケア",
-    title: "いつものお部屋が、プロのヘアサロンに変わる瞬間。",
-    description: "ベッドサイドや車椅子のまま安全に配慮し、プロフェッショナルな仕上げで極上の笑顔をお届けします。",
-    gradient: "from-rose-400/40 to-pink-500/40",
-  },
-  {
-    id: "g2",
-    category: "MAKEUP THERAPY",
-    number: "02",
-    tag: "福祉メイクアップレッスン",
-    title: "自分の手で行うメイク。表情の輝きとリハビリ効果。",
-    description: "視覚障がいのある方やシニアの方々が自ら美を表現。鏡を見つめる喜びと温かな活力を引き出します。",
-    gradient: "from-amber-300/40 to-orange-400/40",
-  },
-  {
-    id: "g3",
-    category: "ACADEMY",
-    number: "03",
-    tag: "福祉美容セミナー研修",
-    title: "次の世代を担う、美容と医療・福祉の専門職養成。",
-    description: "介助方法や心理ケアの専門知識を習得し、福祉美容の第一線で活躍できる優秀な講師陣やキャストを育成。",
-    gradient: "from-teal-300/40 to-emerald-400/40",
-  },
-  {
-    id: "g4",
-    category: "COMMUNITY EVENTS",
-    number: "04",
-    tag: "世代を越えた地域サロン",
-    title: "だれもが障壁を忘れて集える、新しい温もり交流の場。",
-    description: "ビューティデーやバリアフリーアート展示などを定期開催。地域の人々をハートフルに結びつけます。",
-    gradient: "from-sky-300/40 to-indigo-500/40",
-  },
-  {
-    id: "g5",
-    category: "TOUCH THERAPY",
-    number: "05",
-    tag: "タクティールコミュニケーション",
-    title: "肌を通じた対話。心と体の安らぎを呼び起こす手法。",
-    description: "自律神経の調和をはかり、安心感を与えるタッチングケア。笑顔の裏側にある健やかなメンタルを支えます。",
-    gradient: "from-purple-300/40 to-rose-400/40",
-  },
-  {
-    id: "g6",
-    category: "FUTURE VISION",
-    number: "06",
-    tag: "Color Your Future",
-    title: "あなたらしい本来の色が、きらきらと輝く未来（あした）。",
-    description: "私たちは、すべての人に「なりたかった私」「もっとワクワクする私」に再会する幸せをお約束します。",
-    gradient: "from-[#ffa07a]/40 to-[#ff6b8b]/40",
-  },
-];
-
 export default function MainSections({ onInquiryClick, onNavigateSection }: MainSectionsProps) {
+  const [imgSrc, setImgSrc] = React.useState(representativeImg);
+  const [imgError, setImgError] = React.useState(false);
+
+  const handleImageError = () => {
+    setImgError(true);
+  };
+
   // Map icons to services
   const getIcon = (iconName: string) => {
     switch (iconName) {
@@ -122,14 +74,14 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             
             <h3 className="text-xl font-bold font-serif-jp text-[#ff7686] flex items-center gap-2">
               <Heart size={18} fill="currentColor" />
-              <span>「なりたい自分」を諦めない社会</span>
+              <span>「なりたい自分」を諦めない社会へ</span>
             </h3>
             
             <p className="text-sm font-sans font-medium text-gray-600 leading-relaxed tracking-wider">
-              だれしもが年齢を重ね、体力が衰え、あるいはハンディキャップを背負うことがあります。しかし、髪型を整えること、鏡のなかの自分にメイクを施すことで得られる「ときめき」は、何者にも代えられない生きるチカラへと変わるはず。
+              だれしもが周りの目を気にし、不登校や孤立を経験し、あるいは「自分なんておしゃれをしてはいけないのではないか」と、一歩を踏み出せない瞬間があります。しかし、髪型をほんの少し整えること、鏡のなかの自分と向き合うことで得られる「ときめき」は、他人の評価に縛られない、主体的（エージェンシー）に生きるチカラへと変わるはずです。
             </p>
             <p className="text-sm font-sans font-medium text-gray-600 leading-relaxed tracking-wider">
-              私たちはただのヘアカットやケアを提供するのではなく、一人ひとりの個性と美しさを引き出し、自尊心と笑顔の花を咲かせるパートナーです。
+              私たちは、単に流行のヘアカットや見た目の美しさを押し付けるのではありません。一人ひとりが外見の呪縛から解放され、自分で自分を愛せる技術を学び、自尊心と笑顔の花を咲かせるための伴走型パートナーです。
             </p>
           </div>
 
@@ -149,8 +101,8 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 <Award className="w-5 h-5 text-teal-500" />
               </div>
               <div>
-                <h4 className="font-bold text-gray-900 text-sm font-serif-jp mb-1">高い安全性とプロスキル</h4>
-                <p className="text-[12px] text-gray-500 font-medium">介護初任者研修や看護知識、徹底したバリアフリー器具を揃え施術に挑みます。</p>
+                <h4 className="font-bold text-gray-900 text-sm font-serif-jp mb-1 whitespace-nowrap">学術的エビデンスと確かな居場所</h4>
+                <p className="text-[12px] text-gray-500 font-medium">イベント前後の心境変化をデータとして測定・検証し、若者のメンタルヘルスを守るための社会的インフラとしての実践に挑みます。</p>
               </div>
             </div>
           </div>
@@ -175,7 +127,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             </h2>
             
             <p className="text-xs text-gray-500 font-sans tracking-wide">
-              訪問美容からメイクレッスン、セラピーサロン、専門人材育成まで多角的に展開しています。
+              若者世代のための新たなセルフケア支援と、サードプレイス創出プログラムを展開しています。
             </p>
           </div>
 
@@ -204,22 +156,30 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                     {service.title}
                   </span>
                   
-                  <h3 className="text-xl font-bold text-gray-900 font-serif-jp mb-4">
+                  <h3 className="text-lg font-bold text-gray-900 font-serif-jp mb-1.5">
                     {service.jpTitle}
                   </h3>
+
+                  {service.subtitle && (
+                    <div className="text-sm font-bold text-[#ff7686] font-serif-jp mb-4 leading-snug">
+                      {service.subtitle}
+                    </div>
+                  )}
                   
                   <p className="text-sm text-gray-500 leading-relaxed font-sans font-medium mb-8">
                     {service.description}
                   </p>
                 </div>
 
-                <button
-                  onClick={onInquiryClick}
+                <a
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1.5 text-xs font-bold text-[#ff7686] hover:text-[#ffa07a] transition-colors cursor-pointer justify-self-end mt-4 self-start"
                 >
                   <span>資料請求・お問い合せ</span>
                   <ChevronRight size={14} className="transform group-hover:translate-x-1.5 transition-transform duration-300" />
-                </button>
+                </a>
               </motion.div>
             ))}
           </div>
@@ -333,14 +293,92 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
         </div>
       </section>
 
+      {/* 3.5. REPRESENTATIVE MESSAGE FEATURE */}
+      <section id="representative" className="scroll-mt-12 py-24 lg:py-32 bg-stone-50/50 backdrop-blur-sm relative overflow-hidden border-t border-gray-100/60 shadow-[inset_0_-2px_12px_rgba(0,0,0,0.01)]">
+        {/* Artistic paint wash background circles */}
+        <div className="absolute top-1/2 left-1/3 -translate-y-1/2 w-[380px] h-[380px] rounded-full bg-rose-50/20 filter blur-[90px] pointer-events-none select-none" />
+        
+        <div className="max-w-5xl mx-auto px-8 xl:px-12 relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+            
+            {/* Left Column: Visual card with Name and Profile metadata */}
+            <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+              <div className="relative">
+                {/* Decorative glowing gradient ring */}
+                <div className="absolute -inset-1 rounded-[50px] bg-gradient-to-tr from-rose-400 via-amber-300 to-teal-300 opacity-25 blur-md" />
+                <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-[44px] bg-white border border-rose-50/60 overflow-hidden flex items-center justify-center shadow-lg shadow-rose-100/20">
+                  {!imgError ? (
+                    <img
+                      src={imgSrc}
+                      alt="鈴木 陽大"
+                      onError={handleImageError}
+                      className="absolute inset-0 w-full h-full object-cover"
+                      referrerPolicy="no-referrer"
+                    />
+                  ) : (
+                    <div className="absolute inset-0 bg-gradient-to-b from-rose-50/40 via-[#fff8f6]/50 to-amber-50/40 flex flex-col items-center justify-center p-6 text-center select-none">
+                      <div className="w-16 h-16 rounded-full bg-white shadow-sm flex items-center justify-center border border-rose-100/30 mb-2">
+                        <User className="w-8 h-8 text-[#ff7686]" />
+                      </div>
+                      <span className="text-[9px] font-mono tracking-[0.25em] text-[#ff7686] font-bold uppercase select-none">RE-PALETTE</span>
+                    </div>
+                  )}
+                </div>
+              </div>
+              
+              <div className="space-y-2 select-none">
+                <span className="text-gray-400 text-[10px] font-mono tracking-[0.22em] uppercase block">Representative</span>
+                <h3 className="text-2.5xl font-black font-serif-jp text-gray-900 leading-tight">
+                  鈴木 陽大
+                </h3>
+                <p className="text-xs font-bold text-rose-500 font-sans tracking-wide">
+                  学生団体 Re-Palette 代表
+                </p>
+              </div>
+            </div>
 
+            {/* Right Column: Empathic Message Body */}
+            <div className="lg:col-span-8 space-y-6 lg:border-l lg:border-gray-100/80 lg:pl-12">
+              <div className="inline-flex items-center gap-1.5 text-rose-500 bg-white px-3.5 py-1.5 rounded-full border border-rose-50 text-[10px] font-bold tracking-widest uppercase font-mono select-none shadow-sm shadow-rose-100/10">
+                代表の想い
+              </div>
+              
+              <div className="relative">
+                {/* Large decorative quotation mark */}
+                <Quote className="absolute -top-6 -left-6 w-12 h-12 text-rose-100/30 transform -rotate-12 pointer-events-none select-none" />
+                
+                <h4 className="text-xl lg:text-2xl font-serif-jp font-extrabold text-[#343a40] leading-snug relative z-10 select-none">
+                  「自分色のパレットを広げ、<br className="hidden sm:block" />
+                  誰もがありのままでいられる居場所を。」
+                </h4>
+              </div>
+
+              <div className="space-y-5 leading-relaxed tracking-wide text-xs md:text-sm font-medium text-gray-600 font-sans pr-4">
+                <p>
+                  僕はこれまで、同世代の不登校や孤立、そしてルッキズムといった生きづらさと向き合い、さまざまな挑戦をしてきました。その中で強く感じたのは、「人の主体性は、安心できる居場所と、フラットな人との出会いで回復する」ということです。
+                </p>
+                <p>
+                  実際に、僕の人生を変え、進むべき道を照らしてくれたのは環境と人でした。同じように悩みながらも「変わりたい」と願う仲間と出会い、歳の近い美容学生や美容師、多くの仲間とフラットに語り合うことで、自分の可能性が広がっていく感覚がありました。
+                </p>
+                <p>
+                  しかし、そうした一歩を踏み出すきっかけは、意図的に作らないと生まれにくいのが現実です。だからこそ、美容への心理的ハードルを下げ、孤独を感じている人たちが交われるサードプレイスを作りたいと思い、学生団体Re-Paletteを立ち上げました。
+                </p>
+                <p>
+                  Re-Paletteが運営する『Nuance Lounge（ニュアンスラウンジ）』は、ただのコミュニティではありません。それぞれの「変わりたい」が交差し、対話や伴走型整容教育を通じて、次の主体的な挑戦へとつながっていく場所です。ここでの出会いが、誰かの人生を変えるきっかけになる。そんなやさしさと彩りの連鎖を、本気で作っていきます。
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
 
       {/* 4. GALLERY SECTION */}
       <section id="gallery" className="scroll-mt-12 py-24 lg:py-32 bg-[#fafaf9] relative border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-8 xl:px-16">
           <div className="text-center max-w-2xl mx-auto mb-16 lg:mb-20 space-y-4">
             <div className="inline-flex items-center gap-2 text-rose-500 font-bold bg-white px-4 py-1.5 rounded-full border border-rose-50 text-[11px] uppercase tracking-widest">
-              Studio Gallery
+              Gallery
             </div>
             <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp text-gray-900 tracking-tight select-none">
               美しさと温もりが行き交う、日々の記録
@@ -350,48 +388,13 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             </p>
           </div>
 
-          {/* Elegant Bento Grid of visual representation blocks */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {galleryItems.map((item) => (
-              <motion.div
-                key={item.id}
-                whileHover={{ y: -6 }}
-                className="group relative h-[380px] rounded-[32px] overflow-hidden bg-white border border-gray-100 shadow-sm transition-all"
-              >
-                {/* A soft color-wash gradient as fallback matching the premium theme */}
-                <div className={`absolute inset-0 bg-gradient-to-tr ${item.gradient} opacity-20 group-hover:opacity-30 transition-all duration-500`} />
-                
-                {/* Subtle graphical background pattern */}
-                <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px]" />
-                
-                {/* Content overlay container */}
-                <div className="absolute inset-0 p-8 flex flex-col justify-between z-10">
-                  <div className="flex items-center justify-between">
-                    <span className="text-[10px] font-bold tracking-widest font-mono text-gray-400 bg-white/80 backdrop-blur-sm px-3.5 py-1.5 rounded-full border border-gray-100/50">
-                      {item.category}
-                    </span>
-                    <span className="text-xs font-mono font-bold text-rose-400/80">
-                      {item.number}
-                    </span>
-                  </div>
-
-                  <div className="space-y-3">
-                    <span className="text-[11px] font-bold tracking-widest text-[#ffa07a] uppercase block font-mono">
-                      {item.tag}
-                    </span>
-                    <h3 className="text-lg font-bold text-gray-900 font-serif-jp leading-snug">
-                      {item.title}
-                    </h3>
-                    <p className="text-[12px] text-gray-500 font-sans font-medium leading-relaxed opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Decorative bottom line */}
-                <div className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-rose-300 via-amber-200 to-teal-300 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
-              </motion.div>
-            ))}
+          <div className="flex flex-col items-center justify-center min-h-[250px] bg-white rounded-[40px] border border-gray-100/80 shadow-sm p-12">
+            <div className="text-center space-y-4">
+              <span className="text-gray-400 text-xs font-mono tracking-[0.25em] uppercase block select-none">
+                Coming soon
+              </span>
+              <div className="w-12 h-[1px] bg-gray-200 mx-auto" />
+            </div>
           </div>
         </div>
       </section>
@@ -422,14 +425,26 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
 
               <div className="space-y-4 pt-4 border-t border-rose-100/50">
                 <div className="flex items-center gap-3">
-                  <span className="text-[11px] font-mono font-bold text-gray-400 bg-gray-50 px-2.5 py-1 rounded-md border border-gray-100">TEL</span>
-                  <span className="text-lg font-bold text-[#343a40] font-sans">03-xxxx-xxxx</span>
-                </div>
-                <div className="flex items-center gap-3">
                   <span className="text-[11px] font-mono font-bold text-gray-400 bg-gray-50 px-2.5 py-1 rounded-md border border-gray-100">EMAIL</span>
-                  <span className="text-sm font-bold text-[#343a40] font-sans">contact@re-palette.com</span>
+                  <span className="text-sm font-bold text-[#343a40] font-sans">
+                    <a href="mailto:repalette809@gmail.com" className="hover:text-rose-500 transition-colors">repalette809@gmail.com</a>
+                  </span>
                 </div>
-                <p className="text-[11px] text-gray-400 font-medium font-sans">受付時間：平日 10:00〜18:00（土日祝休）</p>
+                
+                <div className="pt-2">
+                  <p className="text-[10px] uppercase tracking-widest text-gray-400 font-bold mb-2.5 font-mono">Official SNS</p>
+                  <div className="flex items-center gap-3">
+                    <a href="https://www.instagram.com/repalette_official/?hl=ja" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-50 hover:bg-rose-50 border border-gray-100 text-gray-400 hover:text-rose-500 transition-all shadow-sm" title="Instagram">
+                      <Instagram size={16} />
+                    </a>
+                    <a href="https://www.facebook.com/profile.php?id=61587543673430&locale=ja_JP" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-50 hover:bg-rose-50 border border-gray-100 text-gray-400 hover:text-rose-500 transition-all shadow-sm" title="Facebook">
+                      <Facebook size={16} />
+                    </a>
+                    <a href="https://www.linkedin.com/in/haruto-suzuki-614a253b9/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-gray-50 hover:bg-rose-50 border border-gray-100 text-gray-400 hover:text-rose-500 transition-all shadow-sm" title="LinkedIn">
+                      <Linkedin size={16} />
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
 
@@ -439,15 +454,17 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 <h3 className="text-lg font-bold text-gray-900 font-serif-jp mb-2">オンラインフォームからのお問い合わせ</h3>
                 <p className="text-xs text-gray-500 mb-6 font-medium">以下ボタンより、担当者が直接対応させていただくフォームが開きます。お気軽に入力ください。</p>
                 
-                <motion.button
+                <motion.a
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  onClick={onInquiryClick}
+                  href="https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="w-full py-5 rounded-[24px] bg-gradient-to-r from-rose-400 via-rose-500 to-orange-400 hover:from-rose-500 hover:to-orange-400 text-white font-bold text-sm text-center shadow-lg hover:shadow-xl hover:shadow-rose-100/80 cursor-pointer transition-all flex items-center justify-center gap-2"
                 >
                   <Mail size={16} />
                   <span>お問い合わせフォームを開く</span>
-                </motion.button>
+                </motion.a>
 
                 <p className="text-[10px] text-gray-400 text-center uppercase font-mono tracking-widest pt-2">
                   Secure Submission Protection
@@ -470,10 +487,10 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
               Re-Palette
             </h3>
             <span className="text-[11px] font-serif-jp font-bold text-rose-400 block tracking-wider">
-              美容福祉のチカラで、笑顔をつくる。
+              美容福祉のチカラで、ありのままの自分へ。
             </span>
             <p className="text-xs text-gray-400 leading-relaxed font-sans pt-2">
-              高齢や身体障がいなどで移動の叶わない方々の笑顔を守るために。介護とメイクプランを融合させた福祉美容サービスを提供。
+              不登校や孤立、ルッキズムなどの生きづらさを抱える若者に向け、整容教育や自己修復のためのサードプレイス「Nuance Lounge」を提供しています。
             </p>
           </div>
 
@@ -493,11 +510,24 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
 
           {/* Base Info */}
           <div className="md:col-span-4 space-y-3 font-medium text-xs text-gray-300">
-            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Corporate Office</h4>
-            <p>株式会社 Re-Palette（リパレット）</p>
-            <p className="text-gray-400">〒150-0001 東京都渋谷区神宮前x-x-x</p>
-            <p className="text-gray-400">TEL: 03-xxxx-xxxx</p>
-            <p className="text-gray-400">事業内容: 訪問理美容、福祉美容化粧品開発、人材セミナー、コミュニティ運営</p>
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Organization</h4>
+            <p>学生団体 Re-Palette（リパレット）</p>
+            <p className="text-gray-400">
+              MAIL: <a href="mailto:repalette809@gmail.com" className="hover:text-rose-400 transition-colors">repalette809@gmail.com</a>
+            </p>
+            <p className="text-gray-400">事業内容: サードプレイス（サードプレイス事業）、伴走型整容教育、ピアサポート、実学・社会的処方の検証</p>
+            
+            <div className="flex items-center gap-4 pt-4 border-t border-gray-800/50 mt-4">
+              <a href="https://www.instagram.com/repalette_official/?hl=ja" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="Instagram">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61587543673430&locale=ja_JP" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="Facebook">
+                <Facebook size={18} />
+              </a>
+              <a href="https://www.linkedin.com/in/haruto-suzuki-614a253b9/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+            </div>
           </div>
 
         </div>

@@ -15,7 +15,10 @@ import MenuOverlay from "./components/MenuOverlay";
 import EventPage from "./components/EventPage";
 
 export default function App() {
-  const [isInquiryOpen, setIsInquiryOpen] = React.useState(false);
+  const handleInquiryClick = () => {
+    window.open("https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor", "_blank", "noopener,noreferrer");
+  };
+
   const [isNewsDrawerOpen, setIsNewsDrawerOpen] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
   const [activeTab, setActiveTab] = React.useState("hero");
@@ -102,7 +105,7 @@ export default function App() {
       
       {/* TOP HEADER NAVIGATION */}
       <Header
-        onInquiryClick={() => setIsInquiryOpen(true)}
+        onInquiryClick={handleInquiryClick}
         onMenuClick={() => setIsMenuOpen(true)}
         activeSection={activeTab}
         setActiveSection={handleNavigateSection}
@@ -130,7 +133,7 @@ export default function App() {
 
             {/* DETAILS, PHILOSOPHY & PORTFOLIOS (Scrollable story sections) */}
             <MainSections 
-              onInquiryClick={() => setIsInquiryOpen(true)} 
+              onInquiryClick={handleInquiryClick} 
               onNavigateSection={handleNavigateSection}
             />
           </motion.div>
@@ -143,7 +146,7 @@ export default function App() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             <EventPage
-              onInquiryClick={() => setIsInquiryOpen(true)}
+              onInquiryClick={handleInquiryClick}
               onBackToHome={() => handleNavigateSection("hero")}
               onNavigateSection={handleNavigateSection}
             />
@@ -154,21 +157,22 @@ export default function App() {
       {/* RE-PALETTE INTERACTIVE DIALOG OVERLAYS */}
       {/* 1. Inquiry Modal Drawer */}
       <InquiryModal
-        isOpen={isInquiryOpen}
-        onClose={() => setIsInquiryOpen(false)}
+        isOpen={false}
+        onClose={() => {}}
       />
 
       {/* 2. Full Announcement Directory Slider */}
       <NewsDrawer
         isOpen={isNewsDrawerOpen}
         onClose={() => setIsNewsDrawerOpen(false)}
+        onNavigateSection={handleNavigateSection}
       />
 
       {/* 3. Full-Screen Interactive Menu Index */}
       <MenuOverlay
         isOpen={isMenuOpen}
         onClose={() => setIsMenuOpen(false)}
-        onInquiryClick={() => setIsInquiryOpen(true)}
+        onInquiryClick={handleInquiryClick}
         activeSection={activeTab}
         setActiveSection={handleNavigateSection}
       />

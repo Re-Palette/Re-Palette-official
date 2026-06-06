@@ -72,16 +72,18 @@ export default function Header({
       {/* CTA BUTTONS */}
       <div className="flex items-center gap-3">
         {/* Inquiry Button */}
-        <motion.button
+        <motion.a
           whileHover={{ scale: 1.03 }}
           whileTap={{ scale: 0.97 }}
-          onClick={onInquiryClick}
+          href="https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor"
+          target="_blank"
+          rel="noopener noreferrer"
           id="header-inquiry-btn"
           className="flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-rose-400 to-rose-500 hover:from-rose-500 hover:to-orange-400 text-white font-medium text-[13px] tracking-wide shadow-md shadow-rose-100 transition-all cursor-pointer"
         >
           <Mail size={14} className="text-white/90" />
           <span>お問い合わせ</span>
-        </motion.button>
+        </motion.a>
 
         {/* Circular Menu Button */}
         <motion.button

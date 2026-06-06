@@ -2,7 +2,7 @@ import { useState } from "react";
 import { motion } from "motion/react";
 import { 
   Calendar, Clock, MapPin, ChevronRight, Mail, Compass, ArrowLeft, 
-  Search, Users, BookOpen, Info, Instagram, Briefcase
+  Search, Users, BookOpen, Info, Instagram, Briefcase, Facebook, Linkedin
 } from "lucide-react";
 import nuanceLoungePoster from "../assets/images/nuance_lounge_poster.png";
 
@@ -94,8 +94,8 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
                 イベント・セミナー情報
               </h1>
               
-              <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-sans font-medium max-w-2xl">
-                伴走型美容福祉の可能性をひろげ、学ぶ。体験ワークショップから専門職養成セミナーまで、Re-Palette（リパレット）が定期開催しているイベントの一覧です。
+              <p className="text-sm sm:text-base text-gray-600 leading-relaxed font-sans font-medium">
+                学校や家庭以外の安心できるサードプレイス「Nuance Lounge」や、同じ目線で語り合える対話セッションなど、Re-Palette（リパレット）が主催するイベント・プログラムの一覧です。
               </p>
             </div>
 
@@ -108,8 +108,8 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
               </div>
               <div className="p-6 rounded-[32px] bg-white border border-gray-100 shadow-sm space-y-2">
                 <span className="text-[10px] font-bold tracking-widest text-teal-500 block font-mono">PARTICIPANTS</span>
-                <span className="text-2xl font-black font-mono text-gray-950">1,200人+</span>
-                <p className="text-[11px] text-gray-400 font-medium">累計イベンター動員数</p>
+                <span className="text-2xl font-black font-mono text-gray-950">40人+</span>
+                <p className="text-[11px] text-gray-400 font-medium">累計参加者数</p>
               </div>
             </div>
 
@@ -294,7 +294,7 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
                   {/* Actions CTA button and small badge */}
                   <div className="mt-8 pt-6 border-t border-gray-50 flex items-center justify-between gap-4">
                     <a
-                      href="https://nuance-lounge.vercel.app/"
+                      href="https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor"
                       target="_blank"
                       rel="noopener noreferrer"
                       className={`w-full py-4 rounded-2xl border ${event.btnBorder} font-bold text-xs flex items-center justify-center gap-1.5 cursor-pointer transition-all text-center flex items-center justify-center`}
@@ -322,15 +322,17 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
               </p>
             </div>
             
-            <motion.button
+            <motion.a
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
-              onClick={onInquiryClick}
-              className="px-8 py-5 rounded-[24px] bg-[#343a40] hover:bg-gray-800 text-white font-bold text-xs cursor-pointer tracking-wider flex items-center justify-center gap-2 flex-shrink-0"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSdr0b2qbfsEBa6tatUcKdFP7leu4645nQ9gXeIQlCyVvuFxRg/viewform?usp=publish-editor"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-8 py-5 rounded-[24px] bg-[#343a40] hover:bg-gray-800 text-white font-bold text-xs cursor-pointer tracking-wider flex items-center justify-center gap-2 flex-shrink-0 text-center"
             >
               <Mail size={14} />
               <span>施設向け派遣・開催の相談</span>
-            </motion.button>
+            </motion.a>
           </div>
 
         </div>
@@ -347,10 +349,10 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
               Re-Palette
             </h3>
             <span className="text-[11px] font-serif-jp font-bold text-rose-400 block tracking-wider">
-              美容福祉のチカラで、笑顔をつくる。
+              美容福祉のチカラで、ありのままの自分へ。
             </span>
             <p className="text-xs text-gray-400 leading-relaxed font-sans pt-2">
-              高齢や身体障がいなどで移動の叶わない方々の笑顔を守るために。介護とメイクプランを融合させた福祉美容サービスを提供。
+              不登校や孤立、ルッキズムなどの生きづらさを抱える若者に向け、整容教育や自己修復のためのサードプレイス「Nuance Lounge」を提供しています。
             </p>
           </div>
 
@@ -370,11 +372,24 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
 
           {/* Base Info */}
           <div className="md:col-span-4 space-y-3 font-medium text-xs text-gray-300">
-            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Corporate Office</h4>
-            <p>株式会社 Re-Palette（リパレット）</p>
-            <p className="text-gray-400">〒150-0001 東京都渋谷区神宮前x-x-x</p>
-            <p className="text-gray-400">TEL: 03-xxxx-xxxx</p>
-            <p className="text-gray-400">事業内容: 訪問理美容、福祉美容化粧品開発、人材セミナー、コミュニティ運営</p>
+            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Organization</h4>
+            <p>学生団体 Re-Palette（リパレット）</p>
+            <p className="text-gray-400">
+              MAIL: <a href="mailto:repalette809@gmail.com" className="hover:text-rose-400 transition-colors">repalette809@gmail.com</a>
+            </p>
+            <p className="text-gray-400">事業内容: サードプレイス（サードプレイス事業）、伴走型整容教育、ピアサポート、実学・社会的処方の検証</p>
+            
+            <div className="flex items-center gap-4 pt-4 border-t border-gray-800/50 mt-4">
+              <a href="https://www.instagram.com/repalette_official/?hl=ja" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="Instagram">
+                <Instagram size={18} />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61587543673430&locale=ja_JP" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="Facebook">
+                <Facebook size={18} />
+              </a>
+              <a href="https://www.linkedin.com/in/haruto-suzuki-614a253b9/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="LinkedIn">
+                <Linkedin size={18} />
+              </a>
+            </div>
           </div>
 
         </div>

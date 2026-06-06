@@ -17,6 +17,7 @@ export interface ServiceItem {
   id: string;
   title: string;
   jpTitle: string;
+  subtitle?: string;
   description: string;
   color: string;
   iconName: string;
