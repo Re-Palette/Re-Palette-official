@@ -7,7 +7,7 @@ export default function HeroRight() {
   const [imageLoaded, setImageLoaded] = React.useState(false);
 
   return (
-    <div className="md:absolute md:top-[12px] md:bottom-0 relative top-[12px] w-full select-none z-0">
+    <div className="md:absolute md:-top-[80px] md:bottom-0 md:left-0 md:right-0 md:h-[calc(100%+80px)] relative top-[16px] w-full select-none z-0">
       {/* FULL-BLEED IMAGE CONTROLLER */}
       <div className="w-full md:h-full relative overflow-hidden bg-white">
         
