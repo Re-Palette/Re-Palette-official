@@ -207,7 +207,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             <h2 className="text-3.5xl lg:text-4.5xl font-black font-serif-jp text-gray-950 tracking-tight leading-tight pt-2">
               VISION
             </h2>
-            <p className="text-lg lg:text-xl font-bold font-serif-jp text-rose-400 bg-gradient-to-r from-rose-500 via-amber-400 to-[#1db2cf] bg-clip-text text-transparent">
+            <p className="text-[20px] font-bold font-serif-jp text-rose-400 bg-gradient-to-r from-rose-500 via-amber-400 to-[#1db2cf] bg-clip-text text-transparent">
               誰もが「自分色の未来」を自由に描ける社会へ。
             </p>
           </div>
@@ -352,7 +352,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 {/* Large decorative quotation mark */}
                 <Quote className="absolute -top-6 -left-6 w-12 h-12 text-rose-100/30 transform -rotate-12 pointer-events-none select-none" />
                 
-                <h4 className="text-[19px] font-serif-jp font-extrabold text-[#343a40] leading-snug relative z-10 select-none">
+                <h4 className="text-[18px] font-serif-jp font-extrabold text-[#343a40] leading-snug relative z-10 select-none">
                   「自分色のパレットを広げ、<br className="hidden sm:block" />
                   誰もがありのままでいられる居場所を。」
                 </h4>
@@ -385,7 +385,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             <div className="inline-flex items-center gap-2 text-rose-500 font-bold bg-white px-4 py-1.5 rounded-full border border-rose-50 text-[11px] uppercase tracking-widest">
               Gallery
             </div>
-            <h2 className="text-3xl lg:text-4xl font-extrabold font-serif-jp text-gray-900 tracking-tight select-none">
+            <h2 className="text-[17px] font-extrabold font-serif-jp text-gray-900 tracking-tight select-none">
               美しさと温もりが行き交う、日々の記録
             </h2>
             <p className="text-xs text-gray-500 font-sans tracking-wide">
@@ -482,55 +482,108 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
       </section>
 
       {/* 6. COMPANY FOOTER */}
-      <footer id="company" className="bg-[#1f2122] text-white pt-16 pb-12 font-sans select-none">
+      <footer id="company" className="bg-[#181615] text-stone-300 pt-20 pb-12 font-sans select-none border-t border-stone-800/40">
         
-        <div className="max-w-7xl mx-auto px-8 xl:px-16 grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 border-b border-white/5 pb-10">
+        <div className="max-w-7xl mx-auto px-8 xl:px-16 grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-16 border-b border-stone-800/85 pb-12">
           
           {/* Logo & Slogan */}
-          <div className="md:col-span-4 space-y-4">
-            <h3 className="font-serif-jp text-3xl font-bold tracking-tight">
+          <div className="md:col-span-4 space-y-5">
+            <h3 className="font-serif-jp text-3.5xl font-extrabold tracking-widest text-white">
               Re-Palette
             </h3>
-            <span className="text-[11px] font-serif-jp font-bold text-rose-400 block tracking-wider">
-              美容福祉のチカラで、ありのままの自分へ。
-            </span>
-            <p className="text-xs text-gray-400 leading-relaxed font-sans pt-2">
+            <div className="border-l-2 border-rose-400 pl-3">
+              <span className="text-xs font-serif-jp font-bold text-rose-400 block tracking-wider">
+                美容福祉のチカラで、ありのままの自分へ。
+              </span>
+            </div>
+            <p className="text-[13px] text-stone-400 leading-relaxed font-sans pt-1">
               不登校や孤立、ルッキズムなどの生きづらさを抱える若者に向け、整容教育や自己修復のためのサードプレイス「Nuance Lounge」を提供しています。
             </p>
           </div>
 
           {/* Quick Links */}
           <div className="md:col-span-4">
-            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Quick Links</h4>
-            <ul className="text-xs space-y-2.5 text-gray-300 font-medium">
-              <li><button onClick={() => onNavigateSection("hero")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">トップ (Top)</button></li>
-              <li><button onClick={() => onNavigateSection("about")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">私たちについて (About)</button></li>
-              <li><button onClick={() => onNavigateSection("services")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">サービス内容 (Services)</button></li>
-              <li><button onClick={() => onNavigateSection("vision")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">未来へのビジョン (Vision)</button></li>
-              <li><button onClick={() => onNavigateSection("event")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">イベント情報 (Events)</button></li>
-              <li><button onClick={() => onNavigateSection("gallery")} className="hover:text-rose-400 transition-colors text-left cursor-pointer">日々の記録 (Gallery)</button></li>
-              <li><button onClick={() => onNavigateSection("contact")} className="hover:text-rose-400 transition-colors flex items-center gap-1 text-left cursor-pointer">お問い合わせ (Contact) <ChevronRight size={10} /></button></li>
+            <h4 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6 border-b border-stone-800/60 pb-2 inline-block lg:w-48">
+              Quick Links
+            </h4>
+            <ul className="text-[13px] space-y-3.5 text-stone-300 font-medium">
+              <li>
+                <button onClick={() => onNavigateSection("hero")} className="hover:text-rose-400 hover:translate-x-1 duration-200 transition-all text-left cursor-pointer flex items-center gap-1.5 group">
+                  <span className="text-rose-400/50 group-hover:text-rose-400">・</span> トップ (Top)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigateSection("about")} className="hover:text-rose-400 hover:translate-x-1 duration-200 transition-all text-left cursor-pointer flex items-center gap-1.5 group">
+                  <span className="text-rose-400/50 group-hover:text-rose-400">・</span> 私たちについて (About)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigateSection("services")} className="hover:text-rose-400 hover:translate-x-1 duration-200 transition-all text-left cursor-pointer flex items-center gap-1.5 group">
+                  <span className="text-rose-400/50 group-hover:text-rose-400">・</span> サービス内容 (Services)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigateSection("vision")} className="hover:text-rose-400 hover:translate-x-1 duration-200 transition-all text-left cursor-pointer flex items-center gap-1.5 group">
+                  <span className="text-rose-400/50 group-hover:text-rose-400">・</span> 未来へのビジョン (Vision)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigateSection("event")} className="hover:text-rose-400 hover:translate-x-1 duration-200 transition-all text-left cursor-pointer flex items-center gap-1.5 group">
+                  <span className="text-rose-400/50 group-hover:text-rose-400">・</span> イベント情報 (Events)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigateSection("gallery")} className="hover:text-rose-400 hover:translate-x-1 duration-200 transition-all text-left cursor-pointer flex items-center gap-1.5 group">
+                  <span className="text-rose-400/50 group-hover:text-rose-400">・</span> 日々の記録 (Gallery)
+                </button>
+              </li>
+              <li>
+                <button onClick={() => onNavigateSection("contact")} className="hover:text-rose-400 hover:translate-x-1 duration-200 transition-all flex items-center gap-1.5 text-left cursor-pointer group">
+                  <span className="text-rose-400/50 group-hover:text-rose-400">・</span> お問い合わせ (Contact) <ChevronRight size={12} className="text-stone-500 group-hover:text-rose-400" />
+                </button>
+              </li>
             </ul>
           </div>
 
           {/* Base Info */}
-          <div className="md:col-span-4 space-y-3 font-medium text-xs text-gray-300">
-            <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Organization</h4>
-            <p>学生団体 Re-Palette（リパレット）</p>
-            <p className="text-gray-400">
-              MAIL: <a href="mailto:repalette809@gmail.com" className="hover:text-rose-400 transition-colors">repalette809@gmail.com</a>
-            </p>
-            <p className="text-gray-400">事業内容: サードプレイス（サードプレイス事業）、伴走型整容教育、ピアサポート、実学・社会的処方の検証</p>
+          <div className="md:col-span-4 space-y-4 text-[13px] text-stone-300">
+            <h4 className="text-xs font-bold text-stone-400 uppercase tracking-widest mb-6 border-b border-stone-800/60 pb-2 inline-block lg:w-48">
+              Organization
+            </h4>
+            <p className="font-bold text-white tracking-wide">学生団体 Re-Palette（リパレット）</p>
             
-            <div className="flex items-center gap-4 pt-4 border-t border-gray-800/50 mt-4">
-              <a href="https://www.instagram.com/repalette_official/?hl=ja" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="Instagram">
-                <Instagram size={18} />
+            <div className="space-y-2 mt-2 leading-relaxed text-stone-400 text-[12.5px]">
+              <div className="flex items-start gap-1 pb-1">
+                <span className="bg-stone-800/60 text-stone-400 px-1.5 py-0.5 rounded text-[10px] uppercase font-bold shrink-0 mt-0.5">Mail</span>
+                <a href="mailto:repalette809@gmail.com" className="text-rose-400 transition-all hover:underline hover:text-rose-300 font-medium pl-1 break-all">
+                  repalette809@gmail.com
+                </a>
+              </div>
+              <div className="border-t border-stone-800/50 pt-2.5 mt-2">
+                <span className="text-[11px] uppercase font-bold tracking-wider text-rose-400 block mb-1">事業内容</span>
+                <ul className="list-none space-y-1 pl-1">
+                  <li className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400/40" /> サードプレイス事業 (Nuance Lounge 運営)
+                  </li>
+                  <li className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400/40" /> 伴走型整容教育 ＆ ピアサポート
+                  </li>
+                  <li className="flex items-center gap-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-rose-400/40" /> 実学および社会的処方の検証
+                  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div className="flex items-center gap-3 pt-5 border-t border-stone-800/30">
+              <a href="https://www.instagram.com/repalette_official/?hl=ja" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-stone-800/40 border border-stone-800/80 hover:bg-rose-500 hover:text-white hover:border-rose-400 transition-all transform hover:-translate-y-0.5 duration-300 text-stone-400" title="Instagram">
+                <Instagram size={17} />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61587543673430&locale=ja_JP" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="Facebook">
-                <Facebook size={18} />
+              <a href="https://www.facebook.com/profile.php?id=61587543673430&locale=ja_JP" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-stone-800/40 border border-stone-800/80 hover:bg-rose-500 hover:text-white hover:border-rose-400 transition-all transform hover:-translate-y-0.5 duration-300 text-stone-400" title="Facebook">
+                <Facebook size={17} />
               </a>
-              <a href="https://www.linkedin.com/in/haruto-suzuki-614a253b9/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-rose-400 transition-colors" title="LinkedIn">
-                <Linkedin size={18} />
+              <a href="https://www.linkedin.com/in/haruto-suzuki-614a253b9/" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full bg-stone-800/40 border border-stone-800/80 hover:bg-rose-500 hover:text-white hover:border-rose-400 transition-all transform hover:-translate-y-0.5 duration-300 text-stone-400" title="LinkedIn">
+                <Linkedin size={17} />
               </a>
             </div>
           </div>
@@ -538,17 +591,16 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
         </div>
 
         {/* Legal copy */}
-        <div className="max-w-7xl mx-auto px-8 xl:px-16 pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-gray-500">
+        <div className="max-w-7xl mx-auto px-8 xl:px-16 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-stone-500">
           <span>© 2026 Re-Palette Co., Ltd. All rights reserved.</span>
           <div className="flex gap-4 mt-4 md:mt-0 font-medium h-4">
-            <button onClick={() => onNavigateSection("about")} className="hover:text-white transition-all cursor-pointer">プライバシーポリシー</button>
-            <span className="w-[1px] bg-gray-700" />
-            <button onClick={() => onNavigateSection("about")} className="hover:text-white transition-all cursor-pointer">特定商取引に基づく表記</button>
+            <button onClick={() => onNavigateSection("about")} className="hover:text-rose-400 transition-all cursor-pointer">プライバシーポリシー</button>
+            <span className="w-[1px] bg-stone-800" />
+            <button onClick={() => onNavigateSection("about")} className="hover:text-rose-400 transition-all cursor-pointer">特定商取引に基づく表記</button>
           </div>
         </div>
 
       </footer>
-
     </div>
   );
 }

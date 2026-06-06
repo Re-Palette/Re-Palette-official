@@ -122,11 +122,11 @@ export default function App() {
             transition={{ duration: 0.3, ease: "easeOut" }}
           >
             {/* SPLIT SCREEN HERO PANEL */}
-            <main id="hero" className="relative w-full md:h-screen md:min-h-[650px] h-auto p-0 md:overflow-hidden overflow-visible">
+            <main id="hero" className="relative w-full md:h-screen md:min-h-[650px] h-auto p-0 md:overflow-visible overflow-visible">
               <HeroRight />
 
               {/* News Bar positioned perfectly at the bottom-left of the hero block */}
-              <div className="absolute md:bottom-10 bottom-6 left-6 sm:left-10 lg:left-16 z-30 max-w-[calc(100vw-3rem)] sm:max-w-xl md:max-w-xl">
+              <div className="absolute md:bottom-6 bottom-8 left-6 sm:left-10 lg:left-16 z-30 max-w-[calc(100vw-3rem)] sm:max-w-xl md:max-w-xl">
                 <NewsBar onViewAllClick={() => setIsNewsDrawerOpen(true)} />
               </div>
             </main>
@@ -180,3 +180,5 @@ export default function App() {
     </div>
   );
 }
+
+// Last synced & optimized: 2026-06-06

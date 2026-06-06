@@ -1,3 +1,4 @@
+import * as React from "react";
 import { Menu, Mail, Sparkles } from "lucide-react";
 import { navigationItems } from "../data";
 import { motion } from "motion/react";
