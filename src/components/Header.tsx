@@ -21,7 +21,7 @@ export default function Header({
       initial={{ y: -20, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="w-full bg-white/80 backdrop-blur-md fixed top-0 left-0 z-40 px-8 xl:px-16 h-[88px] flex items-center justify-between border-b border-gray-100/50 font-sans shadow-sm"
+      className="w-full bg-white/80 backdrop-blur-md fixed top-0 left-0 z-40 px-8 lg:px-6 xl:px-16 h-[88px] flex items-center justify-between border-b border-gray-100/50 font-sans shadow-sm"
     >
       {/* BRAND LOGO / SUBTITLE */}
       <div className="flex flex-col select-none">
@@ -44,7 +44,7 @@ export default function Header({
       </div>
 
       {/* NAVIGATION LINKS */}
-      <nav className="hidden lg:flex items-center gap-8 xl:gap-10">
+      <nav className="hidden lg:flex items-center gap-8 lg:gap-4 xl:gap-10">
         {navigationItems.map((item) => (
           <a
             key={item.id}

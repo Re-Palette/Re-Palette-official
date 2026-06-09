@@ -19,7 +19,7 @@ export default function HeroRight() {
         )}
  
         {/* Master Lifestyle Photo (High fidelity with responsive picture element) */}
-        <picture className="w-full md:h-full block transform translate-y-[25px] md:translate-y-[85px]">
+        <picture className="w-full md:h-full block transform translate-y-[25px] md:translate-y-[85px] lg:translate-y-[-10px] [@media(min-width:1600px)]:translate-y-[85px]">
           {/* PC (Desktop / Wide screen) Image (Reverted to original) */}
           <source media="(min-width: 768px)" srcSet={heroImg} />
           {/* Mobile (Smartphone) Image serves as default src */}

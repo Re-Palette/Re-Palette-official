@@ -183,7 +183,7 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
                 <motion.div
                   key={event.id}
                   whileHover={{ y: -6 }}
-                  className="bg-white rounded-[40px] p-6 sm:p-8 border border-gray-100 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-rose-100/50 hover:shadow-xl hover:shadow-rose-50/20 transition-all"
+                  className="bg-white rounded-[40px] p-6 sm:p-8 lg:p-5 2xl:p-8 border border-gray-100 shadow-sm flex flex-col justify-between relative overflow-hidden group hover:border-rose-100/50 hover:shadow-xl hover:shadow-rose-50/20 transition-all"
                 >
                   <div>
                     {/* Header Badge */}
@@ -222,9 +222,9 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
                     {"highlights" in event && event.highlights && (
                       <div className="grid grid-cols-2 gap-2.5 my-5 pb-5 border-b border-gray-50">
                         {event.highlights.map((high: any, i: number) => (
-                          <div key={i} className="bg-rose-50/20 hover:bg-rose-50/40 transition-colors border border-rose-100/40 rounded-xl p-3 flex flex-col justify-between">
-                            <span className="text-[10px] font-black text-rose-500 tracking-wider mb-1 block">✦ {high.title}</span>
-                            <span className="text-[9.5px] text-gray-500 leading-tight block font-medium">{high.desc}</span>
+                          <div key={i} className="bg-rose-50/20 hover:bg-rose-50/40 transition-colors border border-rose-100/40 rounded-xl p-3 lg:p-2.5 2xl:p-3 flex flex-col justify-between">
+                            <span className="text-[10px] lg:text-[9px] 2xl:text-[10px] font-black text-rose-500 tracking-wider mb-1 block">✦ {high.title}</span>
+                            <span className="text-[9.5px] lg:text-[8.5px] 2xl:text-[9.5px] text-gray-500 leading-tight block font-medium">{high.desc}</span>
                           </div>
                         ))}
                       </div>

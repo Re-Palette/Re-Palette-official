@@ -101,7 +101,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 <Award className="w-5 h-5 text-teal-500" />
               </div>
               <div>
-                <h4 className="font-bold text-gray-900 text-sm font-serif-jp mb-1 whitespace-nowrap">学術的エビデンスと確かな居場所</h4>
+                <h4 className="font-bold text-gray-900 text-sm font-serif-jp mb-1 whitespace-nowrap lg:whitespace-normal 2xl:whitespace-nowrap">学術的エビデンスと確かな居場所</h4>
                 <p className="text-[12px] text-gray-500 font-medium">イベント前後の心境変化をデータとして測定・検証し、若者のメンタルヘルスを守るための社会的インフラとしての実践に挑みます。</p>
               </div>
             </div>
@@ -137,7 +137,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
               <motion.div
                 key={service.id}
                 whileHover={{ y: -8 }}
-                className="bg-white rounded-[36px] p-8 lg:p-10 border border-gray-100 hover:border-rose-100/40 shadow-sm hover:shadow-xl hover:shadow-rose-100/30 transition-all flex flex-col justify-between group relative overflow-hidden"
+                className="bg-white rounded-[36px] p-8 lg:p-6 2xl:p-10 border border-gray-100 hover:border-rose-100/40 shadow-sm hover:shadow-xl hover:shadow-rose-100/30 transition-all flex flex-col justify-between group relative overflow-hidden"
               >
                 {/* Accent mini corner decoration */}
                 <div className={`absolute top-0 right-0 w-32 h-32 bg-gradient-to-bl ${service.color} opacity-0 group-hover:opacity-5 transition-all duration-500 rounded-bl-[100px]`} />
@@ -157,16 +157,16 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                   </span>
                   
                   <h3 className="text-sm sm:text-[15px] md:text-[16px] font-bold text-gray-900 font-serif-jp mb-2 leading-relaxed">
-                    <span className="block whitespace-nowrap overflow-hidden text-ellipsis">{service.jpTitle.split("（")[0]}</span>
+                    <span className="block whitespace-nowrap lg:whitespace-normal 2xl:whitespace-nowrap overflow-hidden text-ellipsis">{service.jpTitle.split("（")[0]}</span>
                     {service.jpTitle.includes("（") && (
-                      <span className="block text-[11px] sm:text-xs font-medium text-gray-500 font-sans mt-0.5 whitespace-nowrap overflow-hidden text-ellipsis">
+                      <span className="block text-[11px] sm:text-xs font-medium text-gray-500 font-sans mt-0.5 whitespace-nowrap lg:whitespace-normal 2xl:whitespace-nowrap overflow-hidden text-ellipsis">
                         （{service.jpTitle.split("（")[1]}
                       </span>
                     )}
                   </h3>
 
                   {service.subtitle && (
-                    <div className="text-xs sm:text-xs md:text-sm font-bold text-[#ff7686] font-serif-jp mb-4 leading-snug whitespace-nowrap overflow-hidden text-ellipsis" title={service.subtitle}>
+                    <div className="text-xs sm:text-xs md:text-sm font-bold text-[#ff7686] font-serif-jp mb-4 leading-snug whitespace-nowrap lg:whitespace-normal 2xl:whitespace-nowrap overflow-hidden text-ellipsis" title={service.subtitle}>
                       {service.subtitle}
                     </div>
                   )}
@@ -217,7 +217,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             {/* Story Philosophy Pillar */}
             <div className="lg:col-span-6 space-y-8 text-gray-700 font-sans font-medium">
               <h3 className="text-2xl font-extrabold font-serif-jp text-gray-900 leading-snug">
-                年齢や障がいを理由に、<br />
+                年齢や障がいを理由に、<br className="lg:hidden 2xl:block" />
                 自分をもてなす喜びを諦めない社会をつくる。
               </h3>
               
@@ -244,7 +244,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             {/* Core Values Pillars Design */}
             <div className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-6">
               
-              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-rose-100/50 hover:bg-white transition-all space-y-4">
+              <div className="p-8 lg:p-5 2xl:p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-rose-100/50 hover:bg-white transition-all space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-rose-50 flex items-center justify-center text-rose-500 font-black">
                   彩
                 </div>
@@ -256,7 +256,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 </p>
               </div>
 
-              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-amber-100/50 hover:bg-white transition-all space-y-4">
+              <div className="p-8 lg:p-5 2xl:p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-amber-100/50 hover:bg-white transition-all space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-amber-50 flex items-center justify-center text-amber-500 font-black">
                   温
                 </div>
@@ -268,7 +268,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 </p>
               </div>
 
-              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-teal-100/50 hover:bg-white transition-all space-y-4">
+              <div className="p-8 lg:p-5 2xl:p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-teal-100/50 hover:bg-white transition-all space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-teal-50 flex items-center justify-center text-teal-500 font-black">
                   創
                 </div>
@@ -280,7 +280,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 </p>
               </div>
 
-              <div className="p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-sky-100/50 hover:bg-white transition-all space-y-4">
+              <div className="p-8 lg:p-5 2xl:p-8 rounded-[32px] bg-[#fafaf9] border border-gray-100 hover:border-sky-100/50 hover:bg-white transition-all space-y-4">
                 <div className="w-12 h-12 rounded-2xl bg-sky-50 flex items-center justify-center text-sky-500 font-black">
                   志
                 </div>
@@ -307,11 +307,11 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             
             {/* Left Column: Visual card with Name and Profile metadata */}
-            <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6">
+            <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-left space-y-6 lg:space-y-4 2xl:space-y-6">
               <div className="relative">
                 {/* Decorative glowing gradient ring */}
                 <div className="absolute -inset-1 rounded-[50px] bg-gradient-to-tr from-rose-400 via-amber-300 to-teal-300 opacity-25 blur-md" />
-                <div className="relative w-44 h-44 md:w-52 md:h-52 rounded-[44px] bg-white border border-rose-50/60 overflow-hidden flex items-center justify-center shadow-lg shadow-rose-100/20">
+                <div className="relative w-44 h-44 md:w-52 md:h-52 lg:w-44 lg:h-44 2xl:w-52 2xl:h-52 rounded-[44px] bg-white border border-rose-50/60 overflow-hidden flex items-center justify-center shadow-lg shadow-rose-100/20">
                   {!imgError ? (
                     <img
                       src={imgSrc}
@@ -343,7 +343,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             </div>
 
             {/* Right Column: Empathic Message Body */}
-            <div className="lg:col-span-8 space-y-6 lg:border-l lg:border-gray-100/80 lg:pl-12">
+            <div className="lg:col-span-8 space-y-6 lg:border-l lg:border-gray-100/80 lg:pl-8 2xl:pl-12">
               <div className="inline-flex items-center gap-1.5 text-rose-500 bg-white px-3.5 py-1.5 rounded-full border border-rose-50 text-[10px] font-bold tracking-widest uppercase font-mono select-none shadow-sm shadow-rose-100/10">
                 代表の想い
               </div>
@@ -353,12 +353,12 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
                 <Quote className="absolute -top-6 -left-6 w-12 h-12 text-rose-100/30 transform -rotate-12 pointer-events-none select-none" />
                 
                 <h4 className="text-[18px] font-serif-jp font-extrabold text-[#343a40] leading-snug relative z-10 select-none">
-                  「自分色のパレットを広げ、<br className="hidden sm:block" />
+                  「自分色のパレットを広げ、<br className="hidden sm:block lg:hidden 2xl:block" />
                   誰もがありのままでいられる居場所を。」
                 </h4>
               </div>
 
-              <div className="space-y-5 leading-relaxed tracking-wide text-xs md:text-sm font-medium text-gray-600 font-sans pr-4">
+              <div className="space-y-5 leading-relaxed tracking-wide text-xs md:text-sm lg:text-[13px] 2xl:text-sm font-medium text-gray-600 font-sans pr-4">
                 <p>
                   僕はこれまで、同世代の不登校や孤立、そしてルッキズムといった生きづらさと向き合い、さまざまな挑戦をしてきました。その中で強く感じたのは、「人の主体性は、安心できる居場所と、フラットな人との出会いで回復する」ということです。
                 </p>
@@ -454,7 +454,7 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
             </div>
 
             {/* Quick Box or simplified form */}
-            <div className="lg:col-span-7 bg-[#fafaf9] rounded-[40px] p-8 lg:p-10 border border-gray-100 shadow-sm relative">
+            <div className="lg:col-span-7 bg-[#fafaf9] rounded-[40px] p-8 lg:p-6 2xl:p-10 border border-gray-100 shadow-sm relative">
               <div className="space-y-6">
                 <h3 className="text-lg font-bold text-gray-900 font-serif-jp mb-2">オンラインフォームからのお問い合わせ</h3>
                 <p className="text-xs text-gray-500 mb-6 font-medium">以下ボタンより、担当者が直接対応させていただくフォームが開きます。お気軽に入力ください。</p>
