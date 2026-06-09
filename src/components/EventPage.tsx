@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { motion } from "motion/react";
 import { 
   Calendar, Clock, MapPin, ChevronRight, Mail, Compass, ArrowLeft, 
@@ -50,6 +50,35 @@ const allEventsData = [
 export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSection }: EventPageProps) {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
+  const [touchStartX, setTouchStartX] = useState(0);
+  const [touchStartY, setTouchStartY] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.closest("input, textarea, button, a, [role='button']")) {
+      return;
+    }
+    setTouchStartX(e.touches[0].clientX);
+    setTouchStartY(e.touches[0].clientY);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === 0) return;
+
+    const endX = e.changedTouches[0].clientX;
+    const endY = e.changedTouches[0].clientY;
+
+    const deltaX = endX - touchStartX;
+    const deltaY = endY - touchStartY;
+
+    // Detect horizontal swipe right starting from left 150px
+    if (touchStartX < 150 && deltaX > 75 && Math.abs(deltaY) < 50) {
+      onBackToHome();
+    }
+
+    setTouchStartX(0);
+    setTouchStartY(0);
+  };
 
   const filteredEvents = allEventsData.filter(event => {
     const matchesCategory = selectedCategory === "all" || event.category === selectedCategory;
@@ -61,7 +90,11 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
   });
 
   return (
-    <div className="bg-white text-gray-900 min-h-screen pt-24 font-sans flex flex-col justify-between">
+    <div 
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+      className="bg-white text-gray-900 min-h-screen pt-24 font-sans flex flex-col justify-between"
+    >
       
       {/* 1. HERO BANNER */}
       <section className="relative overflow-hidden bg-gradient-to-b from-rose-50/40 via-white to-white py-16 sm:py-20 border-b border-gray-100">

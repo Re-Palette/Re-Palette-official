@@ -1,3 +1,4 @@
+import React, { useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { X, Instagram, Heart, ArrowUpRight, ShieldAlert, Users, Compass, Globe, Facebook, Linkedin } from "lucide-react";
 import { navigationItems } from "../data";
@@ -17,6 +18,28 @@ export default function MenuOverlay({
   activeSection,
   setActiveSection,
 }: MenuOverlayProps) {
+  const [touchStartX, setTouchStartX] = useState(0);
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    const target = e.target as HTMLElement;
+    if (target.closest("button, a, [role='button']")) {
+      return;
+    }
+    setTouchStartX(e.touches[0].clientX);
+  };
+
+  const handleTouchEnd = (e: React.TouchEvent) => {
+    if (touchStartX === 0) return;
+    const endX = e.changedTouches[0].clientX;
+    const deltaX = endX - touchStartX;
+
+    // Swipe right (from left to right) closes the menu
+    if (deltaX > 80) {
+      onClose();
+    }
+    setTouchStartX(0);
+  };
+
   return (
     <AnimatePresence>
       {isOpen && (
@@ -36,6 +59,8 @@ export default function MenuOverlay({
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
             transition={{ type: "spring", damping: 30, stiffness: 200 }}
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             className="relative ml-auto w-full max-w-xl h-full bg-white shadow-2xl p-10 lg:p-14 flex flex-col justify-between z-10 overflow-y-auto"
           >
             {/* Close Button */}
