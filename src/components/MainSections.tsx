@@ -7,9 +7,10 @@ import representativeImg from "../assets/images/representative.jpg";
 interface MainSectionsProps {
   onInquiryClick: () => void;
   onNavigateSection: (sectionId: string) => void;
+  onOpenLegal?: (tab: "privacy" | "tokushoho") => void;
 }
 
-export default function MainSections({ onInquiryClick, onNavigateSection }: MainSectionsProps) {
+export default function MainSections({ onInquiryClick, onNavigateSection, onOpenLegal }: MainSectionsProps) {
   const [imgSrc, setImgSrc] = React.useState(representativeImg);
   const [imgError, setImgError] = React.useState(false);
 
@@ -594,9 +595,9 @@ export default function MainSections({ onInquiryClick, onNavigateSection }: Main
         <div className="max-w-7xl mx-auto px-8 xl:px-16 pt-8 flex flex-col md:flex-row items-center justify-between text-xs text-stone-500">
           <span>© 2026 Re-Palette Co., Ltd. All rights reserved.</span>
           <div className="flex gap-4 mt-4 md:mt-0 font-medium h-4">
-            <button onClick={() => onNavigateSection("about")} className="hover:text-rose-400 transition-all cursor-pointer">プライバシーポリシー</button>
+            <button onClick={() => onOpenLegal?.("privacy")} className="hover:text-rose-400 transition-all cursor-pointer">プライバシーポリシー</button>
             <span className="w-[1px] bg-stone-800" />
-            <button onClick={() => onNavigateSection("about")} className="hover:text-rose-400 transition-all cursor-pointer">特定商取引に基づく表記</button>
+            <button onClick={() => onOpenLegal?.("tokushoho")} className="hover:text-rose-400 transition-all cursor-pointer">特定商取引に基づく表記</button>
           </div>
         </div>
 

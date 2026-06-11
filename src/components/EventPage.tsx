@@ -10,6 +10,7 @@ interface EventPageProps {
   onInquiryClick: () => void;
   onBackToHome: () => void;
   onNavigateSection: (sectionId: string) => void;
+  onOpenLegal?: (tab: "privacy" | "tokushoho") => void;
 }
 
 const eventCategories = [
@@ -47,7 +48,7 @@ const allEventsData = [
   }
 ];
 
-export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSection }: EventPageProps) {
+export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSection, onOpenLegal }: EventPageProps) {
   const [selectedCategory, setSelectedCategory] = useState("all");
   const [searchQuery, setSearchQuery] = useState("");
   const [touchStartX, setTouchStartX] = useState(0);
@@ -396,9 +397,9 @@ export default function EventPage({ onInquiryClick, onBackToHome, onNavigateSect
         <div className="max-w-7xl mx-auto px-8 xl:px-16 pt-8 flex flex-col md:flex-row items-center justify-between text-[11px] text-gray-500">
           <span>© 2026 Re-Palette Co., Ltd. All rights reserved.</span>
           <div className="flex gap-4 mt-4 md:mt-0 font-medium h-4">
-            <button onClick={() => onNavigateSection("about")} className="hover:text-white transition-all cursor-pointer">プライバシーポリシー</button>
+            <button onClick={() => onOpenLegal?.("privacy")} className="hover:text-white transition-all cursor-pointer">プライバシーポリシー</button>
             <span className="w-[1px] bg-gray-700" />
-            <button onClick={() => onNavigateSection("about")} className="hover:text-white transition-all cursor-pointer">特定商取引に基づく表記</button>
+            <button onClick={() => onOpenLegal?.("tokushoho")} className="hover:text-white transition-all cursor-pointer">特定商取引に基づく表記</button>
           </div>
         </div>
 

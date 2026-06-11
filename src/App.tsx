@@ -13,6 +13,7 @@ import InquiryModal from "./components/InquiryModal";
 import NewsDrawer from "./components/NewsDrawer";
 import MenuOverlay from "./components/MenuOverlay";
 import EventPage from "./components/EventPage";
+import LegalModal from "./components/LegalModal";
 
 export default function App() {
   const handleInquiryClick = () => {
@@ -21,7 +22,14 @@ export default function App() {
 
   const [isNewsDrawerOpen, setIsNewsDrawerOpen] = React.useState(false);
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isLegalOpen, setIsLegalOpen] = React.useState(false);
+  const [legalTab, setLegalTab] = React.useState<"privacy" | "tokushoho">("privacy");
   const [activeTab, setActiveTab] = React.useState("hero");
+
+  const handleOpenLegal = (tab: "privacy" | "tokushoho") => {
+    setLegalTab(tab);
+    setIsLegalOpen(true);
+  };
   
   // Router state
   const [currentView, setCurrentView] = React.useState<"main" | "event">("main");
@@ -135,6 +143,7 @@ export default function App() {
             <MainSections 
               onInquiryClick={handleInquiryClick} 
               onNavigateSection={handleNavigateSection}
+              onOpenLegal={handleOpenLegal}
             />
           </motion.div>
         ) : (
@@ -149,6 +158,7 @@ export default function App() {
               onInquiryClick={handleInquiryClick}
               onBackToHome={() => handleNavigateSection("hero")}
               onNavigateSection={handleNavigateSection}
+              onOpenLegal={handleOpenLegal}
             />
           </motion.div>
         )}
@@ -175,6 +185,13 @@ export default function App() {
         onInquiryClick={handleInquiryClick}
         activeSection={activeTab}
         setActiveSection={handleNavigateSection}
+      />
+
+      {/* 4. Legal Policy Modal Dialog */}
+      <LegalModal
+        isOpen={isLegalOpen}
+        onClose={() => setIsLegalOpen(false)}
+        initialTab={legalTab}
       />
 
     </div>
